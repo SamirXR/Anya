@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { riskColor, levelBg, nutrientColor, nutrientIcon, nutrientLabel } from '../utils'
+import { levelBg, nutrientColor, nutrientIcon, nutrientLabel } from '../utils'
 
 function NutrientCard({ name, data, isExpanded, onToggle }) {
   const color = nutrientColor(name)
@@ -20,21 +20,14 @@ function NutrientCard({ name, data, isExpanded, onToggle }) {
         <div className={`risk-badge ${data.level}`}>{data.level}</div>
       </div>
 
-      <div className="nutrient-pct" style={{ color }}>
-        {data.risk_pct}%
-      </div>
+      <div className="nutrient-pct" style={{ color }}>{data.risk_pct}%</div>
 
       <div className="progress-bar-wrap" style={{ marginBottom: 8 }}>
-        <div
-          className={`progress-bar-fill ${data.level}`}
-          style={{ width: `${data.risk_pct}%` }}
-        />
+        <div className={`progress-bar-fill ${data.level}`} style={{ width: `${data.risk_pct}%` }} />
       </div>
 
       <div className="nutrient-trend">
         <span className={trendClass}>{trendIcon} {data.trend_delta}</span>
-        <span style={{ margin: '0 4px', color: 'var(--text-muted)' }}>·</span>
-        <span>Next 8 wks</span>
       </div>
 
       {isExpanded && data.causes && (
@@ -55,10 +48,7 @@ export default function RiskPanel({ prediction, loading }) {
     return (
       <div>
         <div className="section-header">
-          <div>
-            <div className="section-title">Deficiency Risk Prediction</div>
-            <div className="section-subtitle">Loading district data…</div>
-          </div>
+          <div className="section-title">Deficiency Risk Profile</div>
         </div>
         <div className="nutrient-grid">
           {[1,2,3,4,5].map(i => (
@@ -77,13 +67,14 @@ export default function RiskPanel({ prediction, loading }) {
           Select a district on the map
         </div>
         <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
-          Click any bubble to see the AI deficiency risk prediction
+          Click any numbered bubble to see real NFHS-5 deficiency data
         </div>
       </div>
     )
   }
 
-  const { micronutrients, district_name, state, prediction_horizon, district_context } = prediction
+  const { micronutrients, district_name, state, rank, tribal, dominant_tribe,
+          data_source, district_context, context } = prediction
 
   return (
     <div>
@@ -91,11 +82,10 @@ export default function RiskPanel({ prediction, loading }) {
       <div className="section-header">
         <div>
           <div className="section-title">
-            📍 {district_name}, {state}
+            📍 #{rank} {district_name}, {state}
+            {tribal && <span style={{ marginLeft: 8, fontSize: 11, color: 'var(--sky)' }}>🏕 {dominant_tribe}</span>}
           </div>
-          <div className="section-subtitle">
-            Prediction horizon: {prediction_horizon} · Model: XGBoost + LSTM
-          </div>
+          <div className="section-subtitle">{data_source}</div>
         </div>
         <div className="section-badge" style={{
           background: 'rgba(56,189,248,0.1)', color: 'var(--sky)',
@@ -105,37 +95,48 @@ export default function RiskPanel({ prediction, loading }) {
         </div>
       </div>
 
-      {/* Context strip */}
-      <div style={{ display: 'flex', gap: 10, marginBottom: 14, flexWrap: 'wrap' }}>
+      {/* District brief */}
+      {context?.brief && (
+        <div style={{
+          padding: '12px 14px', marginBottom: 14,
+          background: 'rgba(255,255,255,0.025)',
+          border: '1px solid rgba(255,255,255,0.06)',
+          borderLeft: '3px solid var(--saffron)',
+          borderRadius: 8, fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.6
+        }}>
+          {context.brief}
+        </div>
+      )}
+
+      {/* NFHS-5 stats strip */}
+      <div style={{ display: 'flex', gap: 8, marginBottom: 14, flexWrap: 'wrap' }}>
         {[
-          { label: 'Stunting', value: `${district_context.stunting_pct}%` },
-          { label: 'Wasting', value: `${district_context.wasting_pct}%` },
-          { label: 'Child Anemia', value: `${district_context.anemia_children_pct}%` },
-          { label: 'PDS Coverage', value: `${district_context.pds_coverage}%` },
-          { label: 'Diet Diversity', value: `${district_context.diet_diversity_score}/6` },
-          { label: 'Poverty', value: `${district_context.poverty_pct}%` },
-        ].map(({ label, value }) => (
+          { label: 'Stunting', value: `${district_context.stunting_pct}%`, alert: district_context.stunting_pct >= 50 },
+          { label: 'Wasting', value: `${district_context.wasting_pct}%`, alert: district_context.wasting_pct >= 20 },
+          { label: 'Underweight', value: `${district_context.underweight_pct}%`, alert: district_context.underweight_pct >= 40 },
+          { label: 'Child Anemia', value: `${district_context.anemia_children_pct}%`, alert: district_context.anemia_children_pct >= 65 },
+          { label: 'Women Anemia', value: `${district_context.anemia_women_pct}%`, alert: district_context.anemia_women_pct >= 60 },
+          { label: 'Poverty', value: `${district_context.poverty_pct}%`, alert: false },
+          { label: 'PDS Coverage', value: `${district_context.pds_coverage}%`, alert: false },
+          { label: 'Inst. Delivery', value: `${district_context.institutional_delivery_pct}%`, alert: false },
+        ].map(({ label, value, alert }) => (
           <div key={label} style={{
-            padding: '5px 12px',
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid var(--border)',
-            borderRadius: 99,
-            fontSize: 11,
-            color: 'var(--text-secondary)'
+            padding: '4px 10px',
+            background: alert ? 'rgba(255,68,68,0.08)' : 'rgba(255,255,255,0.04)',
+            border: `1px solid ${alert ? 'rgba(255,68,68,0.2)' : 'var(--border)'}`,
+            borderRadius: 99, fontSize: 11, color: 'var(--text-secondary)'
           }}>
             <span style={{ color: 'var(--text-muted)' }}>{label}: </span>
-            <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{value}</span>
+            <span style={{ color: alert ? '#ff6b6b' : 'var(--text-primary)', fontWeight: 600 }}>{value}</span>
           </div>
         ))}
       </div>
 
-      {/* Nutrient grid */}
+      {/* Micronutrient grid */}
       <div className="nutrient-grid">
         {Object.entries(micronutrients).map(([name, data]) => (
           <NutrientCard
-            key={name}
-            name={name}
-            data={data}
+            key={name} name={name} data={data}
             isExpanded={expanded === name}
             onToggle={() => setExpanded(expanded === name ? null : name)}
           />
@@ -143,8 +144,26 @@ export default function RiskPanel({ prediction, loading }) {
       </div>
 
       <div style={{ marginTop: 10, fontSize: 11, color: 'var(--text-muted)', textAlign: 'right' }}>
-        Click any card to see root causes · Confidence: ~82%
+        Click any card to expand root causes · Source: NFHS-5 (92% confidence)
       </div>
+
+      {/* Indigenous foods */}
+      {context?.indigenous_foods?.length > 0 && (
+        <div style={{ marginTop: 14 }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 6 }}>
+            🌿 Indigenous Superfoods Available
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+            {context.indigenous_foods.map((food, i) => (
+              <span key={i} style={{
+                padding: '3px 10px', borderRadius: 99, fontSize: 11,
+                background: 'rgba(16,212,142,0.08)', border: '1px solid rgba(16,212,142,0.2)',
+                color: 'var(--emerald)'
+              }}>{food}</span>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

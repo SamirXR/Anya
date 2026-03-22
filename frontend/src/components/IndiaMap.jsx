@@ -1,201 +1,163 @@
-import { useState, useEffect, useRef } from 'react'
-import { riskColor, levelBg, nutrientColor, nutrientIcon, nutrientLabel, API } from '../utils'
+import { useEffect, useRef, useState } from 'react'
 
-// Simplified SVG India map using district coordinates as circles/dots
-// Districts positioned on a stylized India outline
-function IndiaMapSVG({ districts, selectedNutrient, selectedDistrict, onSelectDistrict }) {
-  const getColor = (district) => {
-    const risk = district[`${selectedNutrient}_risk`] || district.overall_risk
-    if (risk >= 70) return '#ff4444'
-    if (risk >= 55) return '#ff8c00'
-    if (risk >= 40) return '#ffcc00'
-    return '#10d48e'
-  }
-
-  const getRadius = (district) => {
-    const base = Math.sqrt(district.population / 1000000) * 3.5
-    return Math.max(5, Math.min(18, base))
-  }
-
-  // Normalize coords to fit SVG viewport (India bounding box ~68-97°E, 8-37°N)
-  const toSVG = (lat, lng) => {
-    const x = ((lng - 68) / (97 - 68)) * 320 + 20
-    const y = ((37 - lat) / (37 - 8)) * 440 + 20
-    return { x, y }
-  }
-
-  return (
-    <svg
-      viewBox="0 0 360 480"
-      style={{ width: '100%', height: '100%', cursor: 'crosshair' }}
-    >
-      {/* India outline background */}
-      <defs>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
-          <feMerge>
-            <feMergeNode in="coloredBlur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-        <filter id="glow-selected">
-          <feGaussianBlur stdDeviation="5" result="coloredBlur" />
-          <feMerge>
-            <feMergeNode in="coloredBlur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-
-      {/* Background grid */}
-      <rect width="360" height="480" fill="rgba(5,10,15,0.4)" rx="12" />
-      {[...Array(7)].map((_, i) => (
-        <line key={i} x1={i * 60 + 20} y1="20" x2={i * 60 + 20} y2="460"
-          stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-      ))}
-      {[...Array(8)].map((_, i) => (
-        <line key={i} x1="20" y1={i * 60 + 20} x2="340" y2={i * 60 + 20}
-          stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-      ))}
-
-      {/* India rough outline */}
-      <path
-        d="M 100 30 L 200 25 L 270 50 L 310 80 L 320 120 L 300 160 L 280 200 L 290 240 L 270 280 L 250 320 L 220 370 L 200 400 L 185 430 L 175 430 L 165 400 L 150 370 L 130 330 L 100 300 L 80 260 L 60 220 L 50 180 L 60 140 L 70 100 L 85 60 Z"
-        fill="rgba(255,255,255,0.02)"
-        stroke="rgba(255,255,255,0.08)"
-        strokeWidth="1.5"
-      />
-
-      {/* District bubbles */}
-      {districts.map(d => {
-        const { x, y } = toSVG(d.lat, d.lng)
-        const color = getColor(d)
-        const r = getRadius(d)
-        const isSelected = d.id === selectedDistrict?.id
-        const isCritical = (d[`${selectedNutrient}_risk`] || d.overall_risk) >= 70
-
-        return (
-          <g key={d.id} onClick={() => onSelectDistrict(d)} style={{ cursor: 'pointer' }}>
-            {/* Pulse ring for critical */}
-            {isCritical && (
-              <circle cx={x} cy={y} r={r + 5} fill="none"
-                stroke={color} strokeWidth="1.5" opacity="0.4">
-                <animate attributeName="r" values={`${r+3};${r+10};${r+3}`}
-                  dur="2s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.4;0;0.4"
-                  dur="2s" repeatCount="indefinite" />
-              </circle>
-            )}
-
-            {/* Selected ring */}
-            {isSelected && (
-              <circle cx={x} cy={y} r={r + 7} fill="none"
-                stroke="white" strokeWidth="2" opacity="0.8"
-                filter="url(#glow-selected)" />
-            )}
-
-            {/* Main bubble */}
-            <circle
-              cx={x} cy={y} r={r}
-              fill={color}
-              opacity={isSelected ? 1 : 0.75}
-              filter={isSelected ? 'url(#glow-selected)' : (isCritical ? 'url(#glow)' : 'none')}
-            />
-
-            {/* Tribal indicator */}
-            {d.tribal && (
-              <circle cx={x + r * 0.6} cy={y - r * 0.6} r="2.5"
-                fill="white" opacity="0.7" />
-            )}
-          </g>
-        )
-      })}
-
-      {/* Legend */}
-      <g transform="translate(14, 390)">
-        {[['≥70% Critical', '#ff4444'], ['55-70% High', '#ff8c00'],
-          ['40-55% Moderate', '#ffcc00'], ['<40% Low', '#10d48e']].map(([label, color], i) => (
-          <g key={label} transform={`translate(0, ${i * 18})`}>
-            <circle cx="7" cy="5" r="5" fill={color} opacity="0.8" />
-            <text x="18" y="9" fontSize="9" fill="rgba(255,255,255,0.5)">{label}</text>
-          </g>
-        ))}
-        <text x="0" y="78" fontSize="8" fill="rgba(255,255,255,0.3)">● = Tribal district</text>
-      </g>
-
-      {/* Title */}
-      <text x="180" y="15" textAnchor="middle" fontSize="9"
-        fill="rgba(255,255,255,0.3)" letterSpacing="1.5">INDIA — DISTRICT RISK MAP</text>
-    </svg>
-  )
-}
-
-const NUTRIENTS = [
+const NUTRIENT_OPTIONS = [
   { id: 'overall', label: 'Overall' },
-  { id: 'iron', label: 'Iron' },
+  { id: 'iron', label: 'Iron (Fe)' },
   { id: 'vitamin_a', label: 'Vit. A' },
-  { id: 'b12', label: 'B12' },
-  { id: 'zinc', label: 'Zinc' },
   { id: 'vitamin_d', label: 'Vit. D' },
+  { id: 'zinc', label: 'Zinc' },
+  { id: 'b12', label: 'B12' },
 ]
 
-export default function IndiaMap({ districts, onSelectDistrict, selectedDistrict }) {
-  const [selectedNutrient, setSelectedNutrient] = useState('overall')
+function getRiskValue(district, nutrient) {
+  if (nutrient === 'overall') return district.overall_risk
+  return district[`${nutrient}_risk`] ?? district.overall_risk
+}
+
+function getRiskColor(pct) {
+  if (pct >= 65) return '#ff3333'
+  if (pct >= 50) return '#ff8c00'
+  if (pct >= 35) return '#ffcc00'
+  return '#10d48e'
+}
+
+export default function IndiaMap({ districts, onSelectDistrict, selectedDistrict, activeNutrient, setActiveNutrient }) {
+  const mapRef = useRef(null)
+  const mapInstanceRef = useRef(null)
+  const markersRef = useRef([])
+  const [nutrient, setNutrient] = useState('overall')
+
+  // Init map once
+  useEffect(() => {
+    if (mapInstanceRef.current || !mapRef.current) return
+
+    const L = window.L
+    if (!L) return
+
+    const map = L.map(mapRef.current, {
+      center: [22.5, 80],
+      zoom: 5,
+      zoomControl: true,
+      scrollWheelZoom: false,
+      attributionControl: false,
+    })
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19,
+    }).addTo(map)
+
+    mapInstanceRef.current = map
+    return () => {
+      map.remove()
+      mapInstanceRef.current = null
+    }
+  }, [])
+
+  // Update markers whenever districts, nutrient or selectedDistrict changes
+  useEffect(() => {
+    const L = window.L
+    const map = mapInstanceRef.current
+    if (!L || !map || !districts.length) return
+
+    // Clear old markers
+    markersRef.current.forEach(m => m.remove())
+    markersRef.current = []
+
+    districts.forEach(d => {
+      const val = getRiskValue(d, nutrient)
+      const color = getRiskColor(val)
+      const isSelected = selectedDistrict?.id === d.id
+
+      const marker = L.circleMarker([d.lat, d.lng], {
+        radius: isSelected ? 13 : 9,
+        fillColor: color,
+        fillOpacity: isSelected ? 1 : 0.85,
+        color: isSelected ? 'white' : 'transparent',
+        weight: isSelected ? 2 : 0,
+      })
+
+      marker.bindTooltip(`
+        <div style="font-family:Inter,sans-serif;font-size:12px;line-height:1.5">
+          <strong>${d.name}</strong>, ${d.state}<br/>
+          Stunting: <b>${d.stunting_pct}%</b> &nbsp;·&nbsp; Anemia: <b>${d.anemia_children_pct}%</b>
+          ${d.tribal ? '<br/>🏕 Tribal district' : ''}
+        </div>
+      `, { direction: 'top', offset: [0, -8], opacity: 0.95 })
+
+      marker.on('click', () => onSelectDistrict(d))
+      marker.addTo(map)
+      markersRef.current.push(marker)
+    })
+  }, [districts, nutrient, selectedDistrict])
+
+  const handleNutrientChange = (id) => {
+    setNutrient(id)
+    setActiveNutrient?.(id)
+  }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
       {/* Nutrient selector */}
       <div className="tab-bar">
-        {NUTRIENTS.map(n => (
+        {NUTRIENT_OPTIONS.map(n => (
           <button
             key={n.id}
-            className={`tab ${selectedNutrient === n.id ? 'active' : ''}`}
-            onClick={() => setSelectedNutrient(n.id)}
+            className={`tab ${nutrient === n.id ? 'active' : ''}`}
+            onClick={() => handleNutrientChange(n.id)}
           >
             {n.label}
           </button>
         ))}
       </div>
 
-      {/* Map */}
-      <div className="glass-card">
-        <div className="map-container" style={{ padding: 8 }}>
-          <IndiaMapSVG
-            districts={districts}
-            selectedNutrient={selectedNutrient}
-            selectedDistrict={selectedDistrict}
-            onSelectDistrict={onSelectDistrict}
-          />
+      {/* Map container */}
+      <div className="glass-card" style={{ padding: 0, overflow: 'hidden', borderRadius: 12 }}>
+        <div ref={mapRef} style={{ height: 460, width: '100%', borderRadius: 12 }} />
+        <div style={{
+          padding: '6px 12px', fontSize: 10,
+          color: 'rgba(255,255,255,0.3)',
+          display: 'flex', justifyContent: 'space-between'
+        }}>
+          <span>© CARTO · OpenStreetMap</span>
+          <span>Data: NFHS-5 (2019-21) · MoHFW, Govt of India</span>
         </div>
       </div>
 
-      {/* Quick stats below map */}
+      {/* Legend */}
+      <div className="glass-card" style={{ padding: '10px 16px' }}>
+        <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
+          {[
+            ['≥65% Critical', '#ff3333'],
+            ['50–65% High', '#ff8c00'],
+            ['35–50% Moderate', '#ffcc00'],
+          ].map(([label, color]) => (
+            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <div style={{ width: 10, height: 10, borderRadius: '50%', background: color }} />
+              <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>{label}</span>
+            </div>
+          ))}
+          <div style={{ marginLeft: 'auto', fontSize: 10, color: 'var(--text-muted)' }}>
+            Click a dot · hover for details
+          </div>
+        </div>
+      </div>
+
+      {/* Stats row */}
       <div className="glass-card" style={{ padding: '12px 16px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 2 }}>Districts Monitored</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: 'var(--text-primary)' }}>
-              {districts.length}
+          {[
+            { label: 'Districts', value: districts.length, sub: 'monitored', color: 'var(--text-primary)' },
+            { label: 'Avg Stunting', value: districts.length ? Math.round(districts.reduce((s, d) => s + (d.stunting_pct || 0), 0) / districts.length) + '%' : '--', sub: 'vs 35.5% national', color: 'var(--critical)' },
+            { label: 'Tribal', value: districts.filter(d => d.tribal).length + '/10', sub: 'districts', color: 'var(--sky)' },
+            { label: 'Population', value: (districts.reduce((s, d) => s + d.population, 0) / 1e7).toFixed(1) + 'Cr', sub: 'at-risk', color: 'var(--saffron)' },
+          ].map(({ label, value, sub, color }) => (
+            <div key={label} style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 10, color: 'var(--text-muted)', marginBottom: 2 }}>{label}</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color }}>{value}</div>
+              <div style={{ fontSize: 9, color: 'var(--text-muted)' }}>{sub}</div>
             </div>
-          </div>
-          <div>
-            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 2 }}>Critical</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: 'var(--critical)' }}>
-              {districts.filter(d => d.overall_level === 'critical').length}
-            </div>
-          </div>
-          <div>
-            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 2 }}>Tribal</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: 'var(--sky)' }}>
-              {districts.filter(d => d.tribal).length}
-            </div>
-          </div>
-          <div>
-            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 2 }}>Population</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: 'var(--saffron)' }}>
-              {(districts.reduce((s, d) => s + d.population, 0) / 1e7).toFixed(1)}Cr
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

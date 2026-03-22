@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react'
 import IndiaMap from '../components/IndiaMap'
 import RiskPanel from '../components/RiskPanel'
 import FortificationPanel from '../components/FortificationPanel'
+import CustomDistrictSearch from '../components/CustomDistrictSearch'
 import { API } from '../utils'
 
 export default function Dashboard({ onNavigate, activeTab, setActiveTab }) {
   const [districts, setDistricts] = useState([])
+  const [aiDistricts, setAiDistricts] = useState([])
   const [selectedDistrict, setSelectedDistrict] = useState(null)
   const [prediction, setPrediction] = useState(null)
   const [fortification, setFortification] = useState(null)
@@ -79,15 +81,24 @@ export default function Dashboard({ onNavigate, activeTab, setActiveTab }) {
         <div>
           <div className="topbar-title">🗺️ Nutrition Command Center</div>
           <div className="topbar-subtitle">
-            Real-time deficiency prediction · {districts.length} districts monitored
+            Top 10 most malnourished districts · Real NFHS-5 (2019-21) data · All 10 are Aspirational Districts
           </div>
         </div>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+          <CustomDistrictSearch
+            onDistrictAdded={(d) => {
+              setAiDistricts(prev => {
+                const exists = prev.find(x => x.id === d.id)
+                return exists ? prev.map(x => x.id === d.id ? d : x) : [...prev, d]
+              })
+              handleSelectDistrict(d)
+            }}
+          />
           <button
             className="btn btn-primary btn-sm"
             onClick={() => onNavigate('meals')}
           >
-            🍛 Meal Planner →
+            Meal Planner →
           </button>
           <div className="status-pill">
             <div className="status-dot" />
@@ -125,10 +136,12 @@ export default function Dashboard({ onNavigate, activeTab, setActiveTab }) {
         <div className="stats-row">
           <div className="glass-card stat-card" style={{ '--grad': 'linear-gradient(90deg, #ef4444, #ff8c00)' }}>
             <div style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.8px' }}>
-              🔴 Critical Districts
+              🔴 Avg Stunting
             </div>
-            <div className="stat-value" style={{ color: 'var(--critical)' }}>{criticalCount}</div>
-            <div className="stat-label">Need urgent intervention</div>
+            <div className="stat-value" style={{ color: 'var(--critical)' }}>
+              {districts.length ? Math.round(districts.reduce((s, d) => s + (d.stunting_pct || 0), 0) / districts.length) : '--'}%
+            </div>
+            <div className="stat-label">vs 35.5% national avg</div>
           </div>
           <div className="glass-card stat-card" style={{ '--grad': 'linear-gradient(90deg, #ff8c00, #ffcc00)' }}>
             <div style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.8px' }}>
@@ -160,9 +173,11 @@ export default function Dashboard({ onNavigate, activeTab, setActiveTab }) {
           {/* Left: Map + district list */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <IndiaMap
-              districts={districts}
+              districts={[...districts, ...aiDistricts]}
               selectedDistrict={selectedDistrict}
               onSelectDistrict={handleSelectDistrict}
+              activeNutrient={activeTab === 'predict' || activeTab === 'fortify' ? 'overall' : activeTab}
+              setActiveNutrient={() => {}}
             />
 
             {/* District ranking list */}
@@ -172,7 +187,7 @@ export default function Dashboard({ onNavigate, activeTab, setActiveTab }) {
                 <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Click to select</div>
               </div>
               <div className="district-list">
-                {districts.slice(0, 20).map((d, i) => {
+                {districts.slice(0, 10).map((d, i) => {
                   const riskColor = d.overall_level === 'critical' ? 'var(--critical)'
                     : d.overall_level === 'high' ? 'var(--high)'
                     : d.overall_level === 'moderate' ? 'var(--moderate)' : 'var(--low)'
@@ -182,10 +197,15 @@ export default function Dashboard({ onNavigate, activeTab, setActiveTab }) {
                       className={`district-item ${selectedDistrict?.id === d.id ? 'selected' : ''}`}
                       onClick={() => handleSelectDistrict(d)}
                     >
-                      <div className="district-rank">#{i + 1}</div>
+                      <div className="district-rank" style={{ color: i < 3 ? 'var(--critical)' : 'var(--text-muted)' }}>#{d.rank || i + 1}</div>
                       <div className="district-info">
                         <div className="district-name">{d.name}</div>
                         <div className="district-state">{d.state} {d.tribal ? '· 🏕 Tribal' : ''}</div>
+                        <div style={{ fontSize: 10, color: 'var(--text-muted)', marginTop: 1 }}>
+                          Stunting: <span style={{ color: 'var(--critical)', fontWeight: 600 }}>{d.stunting_pct}%</span>
+                          {' · '}
+                          Anemia: <span style={{ color: 'var(--high)', fontWeight: 600 }}>{d.anemia_children_pct}%</span>
+                        </div>
                       </div>
                       <div className="district-risk-num" style={{ color: riskColor }}>
                         {d.overall_risk}%

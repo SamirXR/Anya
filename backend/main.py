@@ -11,6 +11,10 @@ import json
 from services.risk_predictor import predict_district, get_all_district_summaries
 from services.fortification_optimizer import optimize_fortification
 from services.meal_generator import generate_meals
+from services.ai_district_analyzer import analyze_district_with_ai
+
+# In-memory store for AI-generated districts (session-scoped)
+ai_districts: dict = {}
 
 app = FastAPI(
     title="Anya — India's Nutrition Copilot API",
@@ -36,7 +40,7 @@ class FamilyMember(BaseModel):
 
 class MealRequest(BaseModel):
     district: str = "nandurbar"
-    cultural_group: str = "hindu_nonveg"  # See cultural_rules.json for options
+    cultural_group: str = "hindu_nonveg"
     family_members: List[FamilyMember] = [
         FamilyMember(type="pregnant", label="Mother"),
         FamilyMember(type="man", label="Father"),
@@ -44,10 +48,15 @@ class MealRequest(BaseModel):
         FamilyMember(type="elderly", label="Grandmother")
     ]
     monthly_budget_inr: int = 2500
-    season: str = "monsoon"  # monsoon, winter, summer, post_harvest
+    season: str = "monsoon"
     pds_access: bool = True
     local_market_items: Optional[List[str]] = None
     deficiency_profile: Optional[Dict[str, float]] = None
+
+
+class AnalyzeDistrictRequest(BaseModel):
+    district_name: str
+    state_name: Optional[str] = ""
 
 
 # ── Endpoints ────────────────────────────────────────────────────────────────
@@ -166,3 +175,68 @@ def get_cultural_groups():
 @app.get("/api/health")
 def health():
     return {"status": "healthy", "service": "Anya Nutrition API"}
+
+
+# ── AI Custom District Endpoints ─────────────────────────────────────────────
+
+@app.post("/api/analyze-district")
+async def analyze_district(request: AnalyzeDistrictRequest):
+    """
+    Use Azure OpenAI GPT-4o to analyze a custom district not in our database.
+    Returns a full nutrition profile matching the same schema as built-in districts.
+    """
+    key = request.district_name.lower().replace(" ", "_")
+    if key in ai_districts:
+        return {"district": ai_districts[key], "cached": True}
+
+    try:
+        district_data = await analyze_district_with_ai(
+            district_name=request.district_name,
+            state_name=request.state_name or ""
+        )
+        ai_districts[key] = district_data
+        return {"district": district_data, "cached": False}
+    except ValueError as e:
+        raise HTTPException(status_code=503, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"AI analysis failed: {str(e)}")
+
+
+@app.get("/api/geocode")
+async def geocode_district(q: str):
+    """
+    Forward geocoding via Nominatim (OpenStreetMap) — free, no API key.
+    Returns candidates with lat/lng for district search.
+    """
+    import httpx
+    url = "https://nominatim.openstreetmap.org/search"
+    params = {
+        "q": f"{q}, India",
+        "format": "json",
+        "limit": 5,
+        "countrycodes": "in",
+        "addressdetails": 1,
+    }
+    headers = {"User-Agent": "Anya-NutritionCopilot/1.0"}
+    async with httpx.AsyncClient(timeout=10.0) as client:
+        resp = await client.get(url, params=params, headers=headers)
+        resp.raise_for_status()
+    results = resp.json()
+    return {
+        "results": [
+            {
+                "display_name": r.get("display_name", ""),
+                "name": r.get("address", {}).get("county") or r.get("address", {}).get("state_district") or r.get("name", q),
+                "state": r.get("address", {}).get("state", ""),
+                "lat": float(r["lat"]),
+                "lng": float(r["lon"]),
+            }
+            for r in results
+        ]
+    }
+
+
+@app.get("/api/ai-districts")
+def get_ai_districts():
+    """Return all AI-generated districts added in this session."""
+    return {"districts": list(ai_districts.values())}

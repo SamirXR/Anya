@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { coverageClass, API } from '../utils'
+import { PieChart } from '../components/MealCharts'
 
 const CULTURAL_GROUPS = [
   { id: 'hindu_nonveg', label: 'Hindu (Non-Vegetarian)' },
@@ -456,6 +457,10 @@ export default function MealPlanner() {
                   {mealPlan.bioavailability_tips.map((tip, i) => (
                     <div key={i} className="tip-item">{tip}</div>
                   ))}
+                </div>
+
+                <div style={{ marginTop: 16 }}>
+                  <PieChart plan={mealPlan} />
                 </div>
 
                 {/* Key ingredients */}

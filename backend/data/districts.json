@@ -1,52 +1,955 @@
 [
-  {"id": "nandurbar", "name": "Nandurbar", "state": "Maharashtra", "lat": 21.37, "lng": 74.24, "population": 1648295, "tribal": true, "stunting_pct": 58.0, "wasting_pct": 26.0, "anemia_children_pct": 76.0, "anemia_women_pct": 63.0, "diet_diversity_score": 2.8, "poverty_pct": 68.0, "vegetarian_pct": 28.0, "pds_coverage": 0.72, "soil_iron_depletion": 0.7, "rainfall_mm": 900, "season_index": 0.6, "egg_consumption_index": 0.4, "dairy_access_index": 0.3, "market_access_index": 0.4},
-  {"id": "gadchiroli", "name": "Gadchiroli", "state": "Maharashtra", "lat": 20.17, "lng": 80.0, "population": 1072942, "tribal": true, "stunting_pct": 52.0, "wasting_pct": 22.0, "anemia_children_pct": 71.0, "anemia_women_pct": 58.0, "diet_diversity_score": 3.1, "poverty_pct": 60.0, "vegetarian_pct": 15.0, "pds_coverage": 0.68, "soil_iron_depletion": 0.6, "rainfall_mm": 1600, "season_index": 0.65, "egg_consumption_index": 0.6, "dairy_access_index": 0.2, "market_access_index": 0.3},
-  {"id": "palghar", "name": "Palghar", "state": "Maharashtra", "lat": 19.7, "lng": 72.77, "population": 2990116, "tribal": true, "stunting_pct": 49.0, "wasting_pct": 20.0, "anemia_children_pct": 68.0, "anemia_women_pct": 55.0, "diet_diversity_score": 3.3, "poverty_pct": 52.0, "vegetarian_pct": 30.0, "pds_coverage": 0.75, "soil_iron_depletion": 0.55, "rainfall_mm": 2500, "season_index": 0.7, "egg_consumption_index": 0.5, "dairy_access_index": 0.4, "market_access_index": 0.6},
-  {"id": "korba", "name": "Korba", "state": "Chhattisgarh", "lat": 22.35, "lng": 82.7, "population": 1206641, "tribal": true, "stunting_pct": 47.0, "wasting_pct": 19.0, "anemia_children_pct": 65.0, "anemia_women_pct": 52.0, "diet_diversity_score": 3.0, "poverty_pct": 48.0, "vegetarian_pct": 20.0, "pds_coverage": 0.80, "soil_iron_depletion": 0.5, "rainfall_mm": 1200, "season_index": 0.55, "egg_consumption_index": 0.55, "dairy_access_index": 0.4, "market_access_index": 0.5},
-  {"id": "bastar", "name": "Bastar", "state": "Chhattisgarh", "lat": 19.12, "lng": 81.95, "population": 1411644, "tribal": true, "stunting_pct": 54.0, "wasting_pct": 24.0, "anemia_children_pct": 73.0, "anemia_women_pct": 60.0, "diet_diversity_score": 2.7, "poverty_pct": 65.0, "vegetarian_pct": 12.0, "pds_coverage": 0.85, "soil_iron_depletion": 0.65, "rainfall_mm": 1400, "season_index": 0.6, "egg_consumption_index": 0.6, "dairy_access_index": 0.25, "market_access_index": 0.35},
-  {"id": "dungarpur", "name": "Dungarpur", "state": "Rajasthan", "lat": 23.84, "lng": 73.71, "population": 1388906, "tribal": true, "stunting_pct": 50.0, "wasting_pct": 21.0, "anemia_children_pct": 69.0, "anemia_women_pct": 56.0, "diet_diversity_score": 2.9, "poverty_pct": 55.0, "vegetarian_pct": 85.0, "pds_coverage": 0.70, "soil_iron_depletion": 0.6, "rainfall_mm": 700, "season_index": 0.4, "egg_consumption_index": 0.1, "dairy_access_index": 0.6, "market_access_index": 0.45},
-  {"id": "barmer", "name": "Barmer", "state": "Rajasthan", "lat": 25.74, "lng": 71.39, "population": 2604453, "tribal": false, "stunting_pct": 46.0, "wasting_pct": 22.0, "anemia_children_pct": 72.0, "anemia_women_pct": 60.0, "diet_diversity_score": 2.5, "poverty_pct": 52.0, "vegetarian_pct": 90.0, "pds_coverage": 0.65, "soil_iron_depletion": 0.55, "rainfall_mm": 200, "season_index": 0.3, "egg_consumption_index": 0.05, "dairy_access_index": 0.7, "market_access_index": 0.4},
-  {"id": "sheopur", "name": "Sheopur", "state": "Madhya Pradesh", "lat": 25.67, "lng": 76.7, "population": 687738, "tribal": true, "stunting_pct": 56.0, "wasting_pct": 25.0, "anemia_children_pct": 74.0, "anemia_women_pct": 61.0, "diet_diversity_score": 2.6, "poverty_pct": 62.0, "vegetarian_pct": 70.0, "pds_coverage": 0.77, "soil_iron_depletion": 0.68, "rainfall_mm": 850, "season_index": 0.5, "egg_consumption_index": 0.2, "dairy_access_index": 0.5, "market_access_index": 0.4},
-  {"id": "alirajpur", "name": "Alirajpur", "state": "Madhya Pradesh", "lat": 22.31, "lng": 74.36, "population": 728677, "tribal": true, "stunting_pct": 61.0, "wasting_pct": 28.0, "anemia_children_pct": 79.0, "anemia_women_pct": 65.0, "diet_diversity_score": 2.4, "poverty_pct": 72.0, "vegetarian_pct": 25.0, "pds_coverage": 0.82, "soil_iron_depletion": 0.75, "rainfall_mm": 950, "season_index": 0.65, "egg_consumption_index": 0.45, "dairy_access_index": 0.2, "market_access_index": 0.3},
-  {"id": "sitapur", "name": "Sitapur", "state": "Uttar Pradesh", "lat": 27.57, "lng": 80.68, "population": 4483992, "tribal": false, "stunting_pct": 48.0, "wasting_pct": 18.0, "anemia_children_pct": 67.0, "anemia_women_pct": 54.0, "diet_diversity_score": 3.2, "poverty_pct": 45.0, "vegetarian_pct": 65.0, "pds_coverage": 0.60, "soil_iron_depletion": 0.45, "rainfall_mm": 950, "season_index": 0.5, "egg_consumption_index": 0.3, "dairy_access_index": 0.65, "market_access_index": 0.55},
-  {"id": "balrampur", "name": "Balrampur", "state": "Uttar Pradesh", "lat": 27.42, "lng": 82.18, "population": 2148665, "tribal": false, "stunting_pct": 52.0, "wasting_pct": 21.0, "anemia_children_pct": 70.0, "anemia_women_pct": 57.0, "diet_diversity_score": 2.9, "poverty_pct": 50.0, "vegetarian_pct": 60.0, "pds_coverage": 0.62, "soil_iron_depletion": 0.5, "rainfall_mm": 1000, "season_index": 0.55, "egg_consumption_index": 0.35, "dairy_access_index": 0.6, "market_access_index": 0.5},
-  {"id": "bahraich", "name": "Bahraich", "state": "Uttar Pradesh", "lat": 27.57, "lng": 81.59, "population": 3487731, "tribal": false, "stunting_pct": 50.0, "wasting_pct": 20.0, "anemia_children_pct": 69.0, "anemia_women_pct": 56.0, "diet_diversity_score": 3.0, "poverty_pct": 48.0, "vegetarian_pct": 55.0, "pds_coverage": 0.63, "soil_iron_depletion": 0.48, "rainfall_mm": 960, "season_index": 0.52, "egg_consumption_index": 0.38, "dairy_access_index": 0.62, "market_access_index": 0.52},
-  {"id": "khunti", "name": "Khunti", "state": "Jharkhand", "lat": 23.07, "lng": 85.28, "population": 531885, "tribal": true, "stunting_pct": 55.0, "wasting_pct": 23.0, "anemia_children_pct": 72.0, "anemia_women_pct": 59.0, "diet_diversity_score": 3.4, "poverty_pct": 56.0, "vegetarian_pct": 8.0, "pds_coverage": 0.78, "soil_iron_depletion": 0.6, "rainfall_mm": 1400, "season_index": 0.65, "egg_consumption_index": 0.7, "dairy_access_index": 0.2, "market_access_index": 0.35},
-  {"id": "pakur", "name": "Pakur", "state": "Jharkhand", "lat": 24.64, "lng": 87.84, "population": 900422, "tribal": true, "stunting_pct": 53.0, "wasting_pct": 22.0, "anemia_children_pct": 70.0, "anemia_women_pct": 57.0, "diet_diversity_score": 3.2, "poverty_pct": 58.0, "vegetarian_pct": 10.0, "pds_coverage": 0.76, "soil_iron_depletion": 0.58, "rainfall_mm": 1300, "season_index": 0.62, "egg_consumption_index": 0.65, "dairy_access_index": 0.25, "market_access_index": 0.38},
-  {"id": "gajapati", "name": "Gajapati", "state": "Odisha", "lat": 19.09, "lng": 84.07, "population": 575880, "tribal": true, "stunting_pct": 51.0, "wasting_pct": 23.0, "anemia_children_pct": 69.0, "anemia_women_pct": 55.0, "diet_diversity_score": 3.1, "poverty_pct": 54.0, "vegetarian_pct": 14.0, "pds_coverage": 0.82, "soil_iron_depletion": 0.6, "rainfall_mm": 1300, "season_index": 0.6, "egg_consumption_index": 0.6, "dairy_access_index": 0.22, "market_access_index": 0.35},
-  {"id": "malkangiri", "name": "Malkangiri", "state": "Odisha", "lat": 18.35, "lng": 81.9, "population": 612727, "tribal": true, "stunting_pct": 57.0, "wasting_pct": 25.0, "anemia_children_pct": 74.0, "anemia_women_pct": 60.0, "diet_diversity_score": 2.8, "poverty_pct": 63.0, "vegetarian_pct": 10.0, "pds_coverage": 0.85, "soil_iron_depletion": 0.65, "rainfall_mm": 1500, "season_index": 0.65, "egg_consumption_index": 0.65, "dairy_access_index": 0.2, "market_access_index": 0.3},
-  {"id": "vizianagaram", "name": "Vizianagaram", "state": "Andhra Pradesh", "lat": 18.12, "lng": 83.4, "population": 2344474, "tribal": false, "stunting_pct": 38.0, "wasting_pct": 15.0, "anemia_children_pct": 58.0, "anemia_women_pct": 46.0, "diet_diversity_score": 3.8, "poverty_pct": 38.0, "vegetarian_pct": 20.0, "pds_coverage": 0.85, "soil_iron_depletion": 0.4, "rainfall_mm": 1100, "season_index": 0.55, "egg_consumption_index": 0.75, "dairy_access_index": 0.5, "market_access_index": 0.65},
-  {"id": "kurnool", "name": "Kurnool", "state": "Andhra Pradesh", "lat": 15.83, "lng": 78.04, "population": 4053463, "tribal": false, "stunting_pct": 36.0, "wasting_pct": 13.0, "anemia_children_pct": 56.0, "anemia_women_pct": 44.0, "diet_diversity_score": 3.9, "poverty_pct": 35.0, "vegetarian_pct": 25.0, "pds_coverage": 0.82, "soil_iron_depletion": 0.38, "rainfall_mm": 700, "season_index": 0.45, "egg_consumption_index": 0.78, "dairy_access_index": 0.55, "market_access_index": 0.68},
-  {"id": "ariyalur", "name": "Ariyalur", "state": "Tamil Nadu", "lat": 11.14, "lng": 79.08, "population": 754894, "tribal": false, "stunting_pct": 27.0, "wasting_pct": 14.0, "anemia_children_pct": 52.0, "anemia_women_pct": 40.0, "diet_diversity_score": 4.2, "poverty_pct": 28.0, "vegetarian_pct": 45.0, "pds_coverage": 0.90, "soil_iron_depletion": 0.32, "rainfall_mm": 900, "season_index": 0.5, "egg_consumption_index": 0.65, "dairy_access_index": 0.68, "market_access_index": 0.75},
-  {"id": "dhubri", "name": "Dhubri", "state": "Assam", "lat": 26.02, "lng": 89.98, "population": 1948632, "tribal": false, "stunting_pct": 43.0, "wasting_pct": 17.0, "anemia_children_pct": 63.0, "anemia_women_pct": 50.0, "diet_diversity_score": 3.5, "poverty_pct": 42.0, "vegetarian_pct": 12.0, "pds_coverage": 0.65, "soil_iron_depletion": 0.42, "rainfall_mm": 2800, "season_index": 0.7, "egg_consumption_index": 0.72, "dairy_access_index": 0.42, "market_access_index": 0.55},
-  {"id": "chirang", "name": "Chirang", "state": "Assam", "lat": 26.48, "lng": 90.47, "population": 481818, "tribal": true, "stunting_pct": 45.0, "wasting_pct": 18.0, "anemia_children_pct": 65.0, "anemia_women_pct": 52.0, "diet_diversity_score": 3.6, "poverty_pct": 44.0, "vegetarian_pct": 8.0, "pds_coverage": 0.68, "soil_iron_depletion": 0.44, "rainfall_mm": 2500, "season_index": 0.68, "egg_consumption_index": 0.75, "dairy_access_index": 0.38, "market_access_index": 0.48},
-  {"id": "west_khasi_hills", "name": "West Khasi Hills", "state": "Meghalaya", "lat": 25.57, "lng": 91.36, "population": 383461, "tribal": true, "stunting_pct": 35.0, "wasting_pct": 13.0, "anemia_children_pct": 55.0, "anemia_women_pct": 43.0, "diet_diversity_score": 4.5, "poverty_pct": 30.0, "vegetarian_pct": 2.0, "pds_coverage": 0.72, "soil_iron_depletion": 0.32, "rainfall_mm": 4000, "season_index": 0.75, "egg_consumption_index": 0.88, "dairy_access_index": 0.3, "market_access_index": 0.52},
-  {"id": "churachandpur", "name": "Churachandpur", "state": "Manipur", "lat": 24.34, "lng": 93.68, "population": 274289, "tribal": true, "stunting_pct": 29.0, "wasting_pct": 8.0, "anemia_children_pct": 48.0, "anemia_women_pct": 38.0, "diet_diversity_score": 5.0, "poverty_pct": 22.0, "vegetarian_pct": 3.0, "pds_coverage": 0.70, "soil_iron_depletion": 0.3, "rainfall_mm": 2000, "season_index": 0.6, "egg_consumption_index": 0.9, "dairy_access_index": 0.28, "market_access_index": 0.55},
-  {"id": "bijapur_cg", "name": "Bijapur", "state": "Chhattisgarh", "lat": 18.83, "lng": 80.78, "population": 255230, "tribal": true, "stunting_pct": 60.0, "wasting_pct": 27.0, "anemia_children_pct": 78.0, "anemia_women_pct": 64.0, "diet_diversity_score": 2.5, "poverty_pct": 70.0, "vegetarian_pct": 11.0, "pds_coverage": 0.88, "soil_iron_depletion": 0.72, "rainfall_mm": 1300, "season_index": 0.65, "egg_consumption_index": 0.6, "dairy_access_index": 0.15, "market_access_index": 0.25},
-  {"id": "nabarangpur", "name": "Nabarangpur", "state": "Odisha", "lat": 19.23, "lng": 82.55, "population": 1218508, "tribal": true, "stunting_pct": 55.0, "wasting_pct": 24.0, "anemia_children_pct": 73.0, "anemia_women_pct": 60.0, "diet_diversity_score": 2.7, "poverty_pct": 62.0, "vegetarian_pct": 13.0, "pds_coverage": 0.83, "soil_iron_depletion": 0.63, "rainfall_mm": 1400, "season_index": 0.62, "egg_consumption_index": 0.62, "dairy_access_index": 0.22, "market_access_index": 0.32},
-  {"id": "west_singhbhum", "name": "West Singhbhum", "state": "Jharkhand", "lat": 22.57, "lng": 85.83, "population": 1502338, "tribal": true, "stunting_pct": 51.0, "wasting_pct": 21.0, "anemia_children_pct": 68.0, "anemia_women_pct": 55.0, "diet_diversity_score": 3.3, "poverty_pct": 52.0, "vegetarian_pct": 9.0, "pds_coverage": 0.80, "soil_iron_depletion": 0.57, "rainfall_mm": 1500, "season_index": 0.63, "egg_consumption_index": 0.72, "dairy_access_index": 0.22, "market_access_index": 0.4},
-  {"id": "dantewada", "name": "Dantewada", "state": "Chhattisgarh", "lat": 18.9, "lng": 81.35, "population": 282961, "tribal": true, "stunting_pct": 58.0, "wasting_pct": 26.0, "anemia_children_pct": 76.0, "anemia_women_pct": 62.0, "diet_diversity_score": 2.6, "poverty_pct": 68.0, "vegetarian_pct": 10.0, "pds_coverage": 0.87, "soil_iron_depletion": 0.70, "rainfall_mm": 1400, "season_index": 0.65, "egg_consumption_index": 0.62, "dairy_access_index": 0.15, "market_access_index": 0.28},
-  {"id": "udaipur", "name": "Udaipur", "state": "Rajasthan", "lat": 24.58, "lng": 73.69, "population": 3068420, "tribal": false, "stunting_pct": 40.0, "wasting_pct": 16.0, "anemia_children_pct": 60.0, "anemia_women_pct": 48.0, "diet_diversity_score": 3.6, "poverty_pct": 38.0, "vegetarian_pct": 88.0, "pds_coverage": 0.68, "soil_iron_depletion": 0.42, "rainfall_mm": 650, "season_index": 0.42, "egg_consumption_index": 0.08, "dairy_access_index": 0.72, "market_access_index": 0.65},
-  {"id": "dahod", "name": "Dahod", "state": "Gujarat", "lat": 22.84, "lng": 74.25, "population": 2127086, "tribal": true, "stunting_pct": 50.0, "wasting_pct": 24.0, "anemia_children_pct": 71.0, "anemia_women_pct": 59.0, "diet_diversity_score": 2.9, "poverty_pct": 57.0, "vegetarian_pct": 80.0, "pds_coverage": 0.72, "soil_iron_depletion": 0.6, "rainfall_mm": 700, "season_index": 0.5, "egg_consumption_index": 0.15, "dairy_access_index": 0.55, "market_access_index": 0.5},
-  {"id": "purnia", "name": "Purnia", "state": "Bihar", "lat": 25.78, "lng": 87.47, "population": 3264619, "tribal": false, "stunting_pct": 49.0, "wasting_pct": 20.0, "anemia_children_pct": 68.0, "anemia_women_pct": 55.0, "diet_diversity_score": 3.1, "poverty_pct": 46.0, "vegetarian_pct": 12.0, "pds_coverage": 0.60, "soil_iron_depletion": 0.48, "rainfall_mm": 1200, "season_index": 0.58, "egg_consumption_index": 0.65, "dairy_access_index": 0.55, "market_access_index": 0.52},
-  {"id": "araria", "name": "Araria", "state": "Bihar", "lat": 26.15, "lng": 87.52, "population": 2811569, "tribal": false, "stunting_pct": 51.0, "wasting_pct": 22.0, "anemia_children_pct": 70.0, "anemia_women_pct": 57.0, "diet_diversity_score": 2.9, "poverty_pct": 50.0, "vegetarian_pct": 10.0, "pds_coverage": 0.58, "soil_iron_depletion": 0.5, "rainfall_mm": 1200, "season_index": 0.58, "egg_consumption_index": 0.68, "dairy_access_index": 0.52, "market_access_index": 0.5},
-  {"id": "shravasti", "name": "Shravasti", "state": "Uttar Pradesh", "lat": 27.52, "lng": 81.93, "population": 1117361, "tribal": false, "stunting_pct": 53.0, "wasting_pct": 23.0, "anemia_children_pct": 71.0, "anemia_women_pct": 58.0, "diet_diversity_score": 2.8, "poverty_pct": 53.0, "vegetarian_pct": 58.0, "pds_coverage": 0.61, "soil_iron_depletion": 0.52, "rainfall_mm": 980, "season_index": 0.55, "egg_consumption_index": 0.3, "dairy_access_index": 0.6, "market_access_index": 0.5},
-  {"id": "jaisalmer", "name": "Jaisalmer", "state": "Rajasthan", "lat": 26.91, "lng": 70.91, "population": 669919, "tribal": false, "stunting_pct": 42.0, "wasting_pct": 20.0, "anemia_children_pct": 64.0, "anemia_women_pct": 52.0, "diet_diversity_score": 2.6, "poverty_pct": 44.0, "vegetarian_pct": 92.0, "pds_coverage": 0.62, "soil_iron_depletion": 0.5, "rainfall_mm": 160, "season_index": 0.25, "egg_consumption_index": 0.04, "dairy_access_index": 0.75, "market_access_index": 0.4},
-  {"id": "ahmednagar", "name": "Ahmednagar", "state": "Maharashtra", "lat": 19.09, "lng": 74.74, "population": 4543083, "tribal": false, "stunting_pct": 38.0, "wasting_pct": 14.0, "anemia_children_pct": 61.0, "anemia_women_pct": 49.0, "diet_diversity_score": 3.7, "poverty_pct": 32.0, "vegetarian_pct": 40.0, "pds_coverage": 0.70, "soil_iron_depletion": 0.4, "rainfall_mm": 600, "season_index": 0.45, "egg_consumption_index": 0.5, "dairy_access_index": 0.65, "market_access_index": 0.72},
-  {"id": "solapur", "name": "Solapur", "state": "Maharashtra", "lat": 17.68, "lng": 75.9, "population": 4317756, "tribal": false, "stunting_pct": 35.0, "wasting_pct": 12.0, "anemia_children_pct": 59.0, "anemia_women_pct": 47.0, "diet_diversity_score": 3.8, "poverty_pct": 30.0, "vegetarian_pct": 35.0, "pds_coverage": 0.72, "soil_iron_depletion": 0.38, "rainfall_mm": 550, "season_index": 0.42, "egg_consumption_index": 0.55, "dairy_access_index": 0.68, "market_access_index": 0.75},
-  {"id": "munger", "name": "Munger", "state": "Bihar", "lat": 25.37, "lng": 86.47, "population": 1360613, "tribal": false, "stunting_pct": 44.0, "wasting_pct": 18.0, "anemia_children_pct": 64.0, "anemia_women_pct": 52.0, "diet_diversity_score": 3.4, "poverty_pct": 40.0, "vegetarian_pct": 15.0, "pds_coverage": 0.65, "soil_iron_depletion": 0.45, "rainfall_mm": 1100, "season_index": 0.55, "egg_consumption_index": 0.65, "dairy_access_index": 0.58, "market_access_index": 0.60},
-  {"id": "keonjhar", "name": "Keonjhar", "state": "Odisha", "lat": 21.63, "lng": 85.58, "population": 1801733, "tribal": true, "stunting_pct": 46.0, "wasting_pct": 20.0, "anemia_children_pct": 66.0, "anemia_women_pct": 53.0, "diet_diversity_score": 3.3, "poverty_pct": 50.0, "vegetarian_pct": 11.0, "pds_coverage": 0.80, "soil_iron_depletion": 0.55, "rainfall_mm": 1400, "season_index": 0.62, "egg_consumption_index": 0.65, "dairy_access_index": 0.28, "market_access_index": 0.48},
-  {"id": "bankura", "name": "Bankura", "state": "West Bengal", "lat": 23.22, "lng": 87.07, "population": 3596674, "tribal": true, "stunting_pct": 42.0, "wasting_pct": 17.0, "anemia_children_pct": 62.0, "anemia_women_pct": 50.0, "diet_diversity_score": 3.6, "poverty_pct": 36.0, "vegetarian_pct": 18.0, "pds_coverage": 0.75, "soil_iron_depletion": 0.44, "rainfall_mm": 1200, "season_index": 0.58, "egg_consumption_index": 0.72, "dairy_access_index": 0.42, "market_access_index": 0.60},
-  {"id": "purulia", "name": "Purulia", "state": "West Bengal", "lat": 23.33, "lng": 86.37, "population": 2930115, "tribal": true, "stunting_pct": 48.0, "wasting_pct": 21.0, "anemia_children_pct": 67.0, "anemia_women_pct": 54.0, "diet_diversity_score": 3.2, "poverty_pct": 48.0, "vegetarian_pct": 15.0, "pds_coverage": 0.73, "soil_iron_depletion": 0.52, "rainfall_mm": 1100, "season_index": 0.58, "egg_consumption_index": 0.70, "dairy_access_index": 0.38, "market_access_index": 0.55},
-  {"id": "nashik", "name": "Nashik", "state": "Maharashtra", "lat": 19.99, "lng": 73.79, "population": 6107187, "tribal": false, "stunting_pct": 32.0, "wasting_pct": 10.0, "anemia_children_pct": 55.0, "anemia_women_pct": 43.0, "diet_diversity_score": 4.0, "poverty_pct": 25.0, "vegetarian_pct": 42.0, "pds_coverage": 0.68, "soil_iron_depletion": 0.35, "rainfall_mm": 700, "season_index": 0.45, "egg_consumption_index": 0.55, "dairy_access_index": 0.70, "market_access_index": 0.80},
-  {"id": "rajkot", "name": "Rajkot", "state": "Gujarat", "lat": 22.3, "lng": 70.8, "population": 3804558, "tribal": false, "stunting_pct": 28.0, "wasting_pct": 14.0, "anemia_children_pct": 53.0, "anemia_women_pct": 41.0, "diet_diversity_score": 4.1, "poverty_pct": 22.0, "vegetarian_pct": 85.0, "pds_coverage": 0.58, "soil_iron_depletion": 0.3, "rainfall_mm": 500, "season_index": 0.38, "egg_consumption_index": 0.08, "dairy_access_index": 0.80, "market_access_index": 0.85},
-  {"id": "ludhiana", "name": "Ludhiana", "state": "Punjab", "lat": 30.9, "lng": 75.86, "population": 3498739, "tribal": false, "stunting_pct": 22.0, "wasting_pct": 7.0, "anemia_children_pct": 46.0, "anemia_women_pct": 35.0, "diet_diversity_score": 4.8, "poverty_pct": 15.0, "vegetarian_pct": 32.0, "pds_coverage": 0.52, "soil_iron_depletion": 0.28, "rainfall_mm": 750, "season_index": 0.42, "egg_consumption_index": 0.7, "dairy_access_index": 0.88, "market_access_index": 0.92},
-  {"id": "amritsar", "name": "Amritsar", "state": "Punjab", "lat": 31.63, "lng": 74.87, "population": 2490656, "tribal": false, "stunting_pct": 20.0, "wasting_pct": 6.0, "anemia_children_pct": 44.0, "anemia_women_pct": 33.0, "diet_diversity_score": 5.0, "poverty_pct": 12.0, "vegetarian_pct": 28.0, "pds_coverage": 0.50, "soil_iron_depletion": 0.25, "rainfall_mm": 720, "season_index": 0.4, "egg_consumption_index": 0.72, "dairy_access_index": 0.90, "market_access_index": 0.95},
-  {"id": "ernakulam", "name": "Ernakulam", "state": "Kerala", "lat": 10.0, "lng": 76.32, "population": 3282388, "tribal": false, "stunting_pct": 17.0, "wasting_pct": 5.0, "anemia_children_pct": 40.0, "anemia_women_pct": 30.0, "diet_diversity_score": 5.5, "poverty_pct": 10.0, "vegetarian_pct": 8.0, "pds_coverage": 0.55, "soil_iron_depletion": 0.22, "rainfall_mm": 3000, "season_index": 0.7, "egg_consumption_index": 0.82, "dairy_access_index": 0.78, "market_access_index": 0.95},
-  {"id": "wayanad", "name": "Wayanad", "state": "Kerala", "lat": 11.61, "lng": 76.08, "population": 817420, "tribal": true, "stunting_pct": 33.0, "wasting_pct": 11.0, "anemia_children_pct": 56.0, "anemia_women_pct": 44.0, "diet_diversity_score": 4.2, "poverty_pct": 32.0, "vegetarian_pct": 5.0, "pds_coverage": 0.70, "soil_iron_depletion": 0.38, "rainfall_mm": 2800, "season_index": 0.68, "egg_consumption_index": 0.78, "dairy_access_index": 0.65, "market_access_index": 0.70},
-  {"id": "mysuru", "name": "Mysuru", "state": "Karnataka", "lat": 12.3, "lng": 76.65, "population": 3001127, "tribal": false, "stunting_pct": 30.0, "wasting_pct": 11.0, "anemia_children_pct": 52.0, "anemia_women_pct": 40.0, "diet_diversity_score": 4.3, "poverty_pct": 24.0, "vegetarian_pct": 38.0, "pds_coverage": 0.72, "soil_iron_depletion": 0.32, "rainfall_mm": 800, "season_index": 0.48, "egg_consumption_index": 0.60, "dairy_access_index": 0.70, "market_access_index": 0.82},
-  {"id": "bidar", "name": "Bidar", "state": "Karnataka", "lat": 17.91, "lng": 77.52, "population": 1720280, "tribal": false, "stunting_pct": 41.0, "wasting_pct": 16.0, "anemia_children_pct": 62.0, "anemia_women_pct": 50.0, "diet_diversity_score": 3.5, "poverty_pct": 36.0, "vegetarian_pct": 40.0, "pds_coverage": 0.68, "soil_iron_depletion": 0.42, "rainfall_mm": 750, "season_index": 0.45, "egg_consumption_index": 0.52, "dairy_access_index": 0.62, "market_access_index": 0.65},
-  {"id": "coimbatore", "name": "Coimbatore", "state": "Tamil Nadu", "lat": 11.02, "lng": 76.96, "population": 3458045, "tribal": false, "stunting_pct": 23.0, "wasting_pct": 8.0, "anemia_children_pct": 47.0, "anemia_women_pct": 36.0, "diet_diversity_score": 5.0, "poverty_pct": 14.0, "vegetarian_pct": 52.0, "pds_coverage": 0.80, "soil_iron_depletion": 0.28, "rainfall_mm": 700, "season_index": 0.45, "egg_consumption_index": 0.62, "dairy_access_index": 0.75, "market_access_index": 0.90},
-  {"id": "bhopal", "name": "Bhopal", "state": "Madhya Pradesh", "lat": 23.26, "lng": 77.4, "population": 2371061, "tribal": false, "stunting_pct": 35.0, "wasting_pct": 12.0, "anemia_children_pct": 58.0, "anemia_women_pct": 46.0, "diet_diversity_score": 3.9, "poverty_pct": 28.0, "vegetarian_pct": 55.0, "pds_coverage": 0.65, "soil_iron_depletion": 0.38, "rainfall_mm": 1150, "season_index": 0.52, "egg_consumption_index": 0.38, "dairy_access_index": 0.68, "market_access_index": 0.80},
-  {"id": "raipur", "name": "Raipur", "state": "Chhattisgarh", "lat": 21.25, "lng": 81.63, "population": 2160876, "tribal": false, "stunting_pct": 37.0, "wasting_pct": 14.0, "anemia_children_pct": 60.0, "anemia_women_pct": 48.0, "diet_diversity_score": 3.7, "poverty_pct": 30.0, "vegetarian_pct": 22.0, "pds_coverage": 0.82, "soil_iron_depletion": 0.40, "rainfall_mm": 1400, "season_index": 0.58, "egg_consumption_index": 0.62, "dairy_access_index": 0.55, "market_access_index": 0.72}
+  {
+    "id": "pashchimi_singhbhum",
+    "name": "Pashchimi Singhbhum",
+    "state": "Jharkhand",
+    "lat": 22.65,
+    "lng": 85.82,
+    "population": 2903958,
+    "tribal": true,
+    "dominant_tribe": "Ho, Santali, Munda",
+    "aspirational_district": true,
+    "rank": 1,
+    "source": "NFHS-5 (2019-21), PIB Annexure, NHSRC India",
+
+    "nfhs5": {
+      "stunting_pct": 60.6,
+      "wasting_pct": 32.9,
+      "underweight_pct": 52.0,
+      "anemia_children_pct": 62.6,
+      "anemia_women_pct": 63.1,
+      "low_birth_weight_pct": 15.2,
+      "child_mortality_per_1000": 48.3,
+      "institutional_delivery_pct": 70.2,
+      "pds_coverage_pct": 68.0,
+      "open_defecation_pct": 38.5,
+      "diet_diversity_score": 2.8,
+      "vegetarian_pct": 12.0,
+      "poverty_pct": 68.0,
+      "female_literacy_pct": 44.2
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 64.0,
+        "primary_causes": [
+          "Predominantly rice-based diet with minimal haem iron",
+          "Very high wasting rate depresses iron stores",
+          "open defecation → repeated gut infections → impaired absorption",
+          "Festival/ritual avoidance of animal foods among tribal communities",
+          "Poor PDS fortification reach in dense forest blocks"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "rising",
+        "trend_delta": "+9% vs NFHS-4"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 52.0,
+        "primary_causes": [
+          "Forest foods (wild greens, tubers) limited in lean season",
+          "PDS oil fortification coverage only ~45% in tribal blocks",
+          "Child mortality from measles/diarrhoea worsened by Vit A deficiency"
+        ],
+        "seasonal_peak": "pre_harvest",
+        "trend": "stable",
+        "trend_delta": "-2% vs NFHS-4"
+      },
+      "zinc": {
+        "deficiency_pct": 48.0,
+        "primary_causes": [
+          "Phytate-rich cereal diet (mandia, bajra) inhibits zinc absorption",
+          "Very high stunting rate itself is both driver and consequence of zinc deficiency"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "+1% vs NFHS-4"
+      },
+      "b12": {
+        "deficiency_pct": 38.0,
+        "primary_causes": [
+          "Despite non-vegetarian traditions, very low portion sizes of meat/fish",
+          "Limited fermented food access outside local markets"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 28.0,
+        "primary_causes": [
+          "Dense forest cover limits sun exposure for women and children indoors",
+          "Low fortified oil coverage"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "rising",
+        "trend_delta": "+6% vs NFHS-4"
+      }
+    },
+
+    "context": {
+      "brief": "Earns the most malnourished district tag in India with 60.6% stunting — nearly 2 in 3 children. A densely forested tribal heartland in the Jharkhand−Odisha border belt. Land alienation from mining has disrupted food sovereignty.",
+      "key_interventions": ["POSHAN Abhiyaan", "Van Dhan Vikash Kendra", "Jharkhand Nutrition Mission"],
+      "indigenous_foods": ["Mahua flowers", "Red ant chutney (48mg Fe/100g)", "Chakra phool", "Bamboo shoots"],
+      "pds_items_available": ["Rice", "Wheat", "Dal", "Kerosene"],
+      "hospitals_per_lakh": 0.8,
+      "anganwadis_per_1000_children": 3.1
+    }
+  },
+  {
+    "id": "bahraich",
+    "name": "Bahraich",
+    "state": "Uttar Pradesh",
+    "lat": 27.57,
+    "lng": 81.60,
+    "population": 3487731,
+    "tribal": false,
+    "dominant_tribe": null,
+    "aspirational_district": true,
+    "rank": 2,
+    "source": "NFHS-5 (2019-21), NITI Aayog District Nutrition Profile",
+
+    "nfhs5": {
+      "stunting_pct": 52.0,
+      "wasting_pct": 14.0,
+      "underweight_pct": 44.0,
+      "anemia_children_pct": 72.0,
+      "anemia_women_pct": 61.8,
+      "low_birth_weight_pct": 14.8,
+      "child_mortality_per_1000": 67.0,
+      "institutional_delivery_pct": 77.0,
+      "pds_coverage_pct": 74.0,
+      "open_defecation_pct": 25.0,
+      "diet_diversity_score": 2.6,
+      "vegetarian_pct": 72.0,
+      "poverty_pct": 59.0,
+      "female_literacy_pct": 40.1
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 73.0,
+        "primary_causes": [
+          "Extremely high vegetarianism (72%) with minimal egg/meat consumption",
+          "Tannin-rich chai consumed with every meal blocks iron absorption",
+          "Anemia among women (62%) drives poor foetal iron stores",
+          "Child anemia 72% — highest among the 10 districts",
+          "ASHA worker IFA distribution compliance low in border blocks"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "stable",
+        "trend_delta": "-3% vs NFHS-4"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 58.0,
+        "primary_causes": [
+          "No PDS vitamin A oil fortification in most UP blocks",
+          "Lean summer season — vegetables unavailable",
+          "Vitamin A deficiency linked to 72% child anemia here"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "rising",
+        "trend_delta": "+7% vs NFHS-4"
+      },
+      "zinc": {
+        "deficiency_pct": 44.0,
+        "primary_causes": [
+          "High phytate diet: roti, rice, dal without any zinc enhancers",
+          "Child stunting and zinc deficiency are bidirectionally linked"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "b12": {
+        "deficiency_pct": 68.0,
+        "primary_causes": [
+          "Among the most vegetarian populations in India (72%)",
+          "Very low egg consumption especially among women",
+          "No state-level B12 supplementation programme"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "rising",
+        "trend_delta": "+11% vs NFHS-4"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 35.0,
+        "primary_causes": [
+          "Long winters with reduced sun hours in the Terai belt",
+          "Women's low outdoor mobility limits sun exposure"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "rising",
+        "trend_delta": "+8% vs NFHS-4"
+      }
+    },
+
+    "context": {
+      "brief": "A densely populated Terai district bordering Nepal with the highest child anemia (72%) among top-10. NFHS-4→5 shows stunting reduced from 65% to 52% — progress is real but still catastrophic by global standards.",
+      "key_interventions": ["UP Mission Shakti", "POSHAN Abhiyan", "Terai Area Development"],
+      "indigenous_foods": ["Kendu leaves broth", "Maize", "Wild tubers"],
+      "pds_items_available": ["Rice", "Wheat", "Dal", "Iodised Salt"],
+      "hospitals_per_lakh": 1.1,
+      "anganwadis_per_1000_children": 3.8
+    }
+  },
+  {
+    "id": "bijapur_cg",
+    "name": "Bijapur",
+    "state": "Chhattisgarh",
+    "lat": 18.83,
+    "lng": 80.78,
+    "population": 255230,
+    "tribal": true,
+    "dominant_tribe": "Gond, Muria",
+    "aspirational_district": true,
+    "rank": 3,
+    "source": "NFHS-5 (2019-21), NHSRC India, NITI District Profile",
+
+    "nfhs5": {
+      "stunting_pct": 54.0,
+      "wasting_pct": 20.0,
+      "underweight_pct": 49.0,
+      "anemia_children_pct": 72.0,
+      "anemia_women_pct": 65.0,
+      "low_birth_weight_pct": 19.5,
+      "child_mortality_per_1000": 62.0,
+      "institutional_delivery_pct": 47.0,
+      "pds_coverage_pct": 55.0,
+      "open_defecation_pct": 45.0,
+      "diet_diversity_score": 2.4,
+      "vegetarian_pct": 18.0,
+      "poverty_pct": 74.0,
+      "female_literacy_pct": 38.0
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 73.0,
+        "primary_causes": [
+          "Maoist insurgency disrupts food supply chains and PDS access",
+          "Very low institutional delivery — mothers miss IFA supplementation",
+          "Forest block villages >15km from any PDS fair price shop",
+          "Repeated malarial episodes (endemic) worsen anaemia",
+          "Only 47% institutional delivery means neonatal iron stores are poor"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "+2% vs NFHS-4"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 60.0,
+        "primary_causes": [
+          "Extremely low PDS coverage (55%) means fortified oil barely reaches",
+          "Road inaccessibility during monsoon cuts off 30% of villages",
+          "Forest food disruption from shifting cultivation patterns"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "rising",
+        "trend_delta": "+14% vs NFHS-4"
+      },
+      "zinc": {
+        "deficiency_pct": 50.0,
+        "primary_causes": [
+          "Maize-dominant diet with very high phytate:",
+          "Lack of zinc-ORS use during diarrhoea episodes"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "b12": {
+        "deficiency_pct": 36.0,
+        "primary_causes": [
+          "Despite non-veg tradition, security concerns limit hunting/gathering",
+          "Limited dairy access"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 30.0,
+        "primary_causes": [
+          "Dense forest canopy limits sunlight for children under forest cover",
+          "No fortified oil or DFS programme reaching interior villages"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "rising",
+        "trend_delta": "+5% vs NFHS-4"
+      }
+    },
+
+    "context": {
+      "brief": "India's most insurgency-affected district makes it also the most service-deprived. 'Suposhit Bijapur' programme launched 2021 using millets, eggs and peanuts to address the 54% stunting. Road access cuts off 60+ villages in monsoon.",
+      "key_interventions": ["Suposhit Bijapur Campaign", "CM Suposhan Abhiyan", "POSHAN Abhiyan"],
+      "indigenous_foods": ["Wild mushrooms", "Mahua", "Forest tubers", "Wild game"],
+      "pds_items_available": ["Rice", "Salt"],
+      "hospitals_per_lakh": 0.4,
+      "anganwadis_per_1000_children": 2.2
+    }
+  },
+  {
+    "id": "alirajpur",
+    "name": "Alirajpur",
+    "state": "Madhya Pradesh",
+    "lat": 22.31,
+    "lng": 74.36,
+    "population": 728677,
+    "tribal": true,
+    "dominant_tribe": "Bhil, Bhilala",
+    "aspirational_district": true,
+    "rank": 4,
+    "source": "NFHS-5 (2019-21), NITI Aayog District Nutrition Profile",
+
+    "nfhs5": {
+      "stunting_pct": 49.0,
+      "wasting_pct": 35.0,
+      "underweight_pct": 33.0,
+      "anemia_children_pct": 52.0,
+      "anemia_women_pct": 75.0,
+      "low_birth_weight_pct": 18.0,
+      "child_mortality_per_1000": 58.0,
+      "institutional_delivery_pct": 59.0,
+      "pds_coverage_pct": 70.0,
+      "open_defecation_pct": 32.0,
+      "diet_diversity_score": 2.5,
+      "vegetarian_pct": 14.0,
+      "poverty_pct": 71.0,
+      "female_literacy_pct": 35.0
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 66.0,
+        "primary_causes": [
+          "Women's anemia (75%) is among worst in India — intergenerational malnutrition",
+          "Extremely high wasting (35%) — highest of all 10 districts",
+          "Migration for 6 months (sugarcane labour) disrupts nutrition for women",
+          "Poor ICDS Anganwadi attendance in scattered hamlets",
+          "Iron cooking vessels replaced by aluminium — loss of dietary iron"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "rising",
+        "trend_delta": "+12% vs NFHS-4"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 55.0,
+        "primary_causes": [
+          "Summer migration means children miss Vitamin A supplementation doses at Anganwadis",
+          "Maize-kapas belt — limited vegetable diversity",
+          "PDS oil often diverted/does not reach tribal hamlets"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "rising",
+        "trend_delta": "+10% vs NFHS-4"
+      },
+      "zinc": {
+        "deficiency_pct": 52.0,
+        "primary_causes": [
+          "Alirajpur has India's highest wasting (35%) — severe acute malnutrition ↔ zinc deficiency loop",
+          "Maize-dal diet with phytate binding"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "rising",
+        "trend_delta": "+8% vs NFHS-4"
+      },
+      "b12": {
+        "deficiency_pct": 40.0,
+        "primary_causes": [
+          "Despite non-veg tradition, seasonal migration disrupts dietary patterns",
+          "No B12 supplementation outreach"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 32.0,
+        "primary_causes": [
+          "Dense hilly forest; poor oil fortification reach",
+          "Seasonal migration breaks contact with public health workers"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "rising",
+        "trend_delta": "+7% vs NFHS-4"
+      }
+    },
+
+    "context": {
+      "brief": "Alirajpur has India's highest wasting rate (35%) among the top 10 — indicating extreme acute malnutrition. Seasonal migration of Bhil families to sugarcane farms in Gujarat disrupts nutrition, school feeding and Anganwadi services for 6 months/year.",
+      "key_interventions": ["Madhya Pradesh POSHAN", "NREGA convergence", "Tribal Welfare Dept NRC"],
+      "indigenous_foods": ["Wild mahua", "Tendu leaves extract", "Red ants chutney", "Forest mushrooms"],
+      "pds_items_available": ["Rice", "Wheat", "Dal", "Iodised Salt"],
+      "hospitals_per_lakh": 0.7,
+      "anganwadis_per_1000_children": 2.8
+    }
+  },
+  {
+    "id": "nandurbar",
+    "name": "Nandurbar",
+    "state": "Maharashtra",
+    "lat": 21.37,
+    "lng": 74.24,
+    "population": 1648295,
+    "tribal": true,
+    "dominant_tribe": "Bhil, Pavra, Konkana",
+    "aspirational_district": true,
+    "rank": 5,
+    "source": "NFHS-5 (2019-21), NITI Aayog District Nutrition Profile",
+
+    "nfhs5": {
+      "stunting_pct": 48.0,
+      "wasting_pct": 15.0,
+      "underweight_pct": 31.0,
+      "anemia_children_pct": 71.2,
+      "anemia_women_pct": 59.8,
+      "low_birth_weight_pct": 16.8,
+      "child_mortality_per_1000": 42.1,
+      "institutional_delivery_pct": 82.0,
+      "pds_coverage_pct": 78.0,
+      "open_defecation_pct": 22.0,
+      "diet_diversity_score": 3.1,
+      "vegetarian_pct": 16.0,
+      "poverty_pct": 62.0,
+      "female_literacy_pct": 45.0
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 71.5,
+        "primary_causes": [
+          "Child anemia 71% despite better delivery coverage — diet is the bottleneck",
+          "Sugarcane and paddy dominance = iron-poor diet",
+          "Very high vegetable prices at tribal haat bazaars",
+          "Iron in paddy husked away during modern milling"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "-1% vs NFHS-4"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 53.0,
+        "primary_causes": [
+          "Limited orange/yellow vegetable access at tribal markets",
+          "PDS oil vitamin A fortification underreached",
+          "Seasonal dietary monotony"
+        ],
+        "seasonal_peak": "pre_harvest",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "zinc": {
+        "deficiency_pct": 40.0,
+        "primary_causes": [
+          "High phytate from dal-rice diet without yoghurt or fermented food"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "b12": {
+        "deficiency_pct": 45.0,
+        "primary_causes": [
+          "Despite tribal non-veg tradition, quantity is very low",
+          "Limited egg and dairy consumption"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "rising",
+        "trend_delta": "+6% vs NFHS-4"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 25.0,
+        "primary_causes": [
+          "Monsoon overcast + indoor cooking",
+          "PDS fortified oil not reaching all tribal hamlets"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "rising",
+        "trend_delta": "+4% vs NFHS-4"
+      }
+    },
+
+    "context": {
+      "brief": "Maharashtra's most malnourished district despite its proximity to a prosperous state. The paradox of high institutional delivery (82%) yet 48% stunting reveals that birth care alone is insufficient — early childhood nutrition must start at conception.",
+      "key_interventions": ["Maharashtra POSHAN Abhiyan", "Rajmata Jijau Amhi Bala Vikrya Yojana", "Tribal Integrated Development Project"],
+      "indigenous_foods": ["Ragi (finger millet)", "Wild tubers", "Bamboo rice", "Mahua flowers"],
+      "pds_items_available": ["Rice", "Wheat", "Dal", "Iodised Salt", "Fortified Oil (partial)"],
+      "hospitals_per_lakh": 1.2,
+      "anganwadis_per_1000_children": 3.4
+    }
+  },
+  {
+    "id": "sheopur",
+    "name": "Sheopur",
+    "state": "Madhya Pradesh",
+    "lat": 25.67,
+    "lng": 76.71,
+    "population": 687630,
+    "tribal": true,
+    "dominant_tribe": "Sahariya",
+    "aspirational_district": true,
+    "rank": 6,
+    "source": "NFHS-5 (2019-21), NITI Aayog District Nutrition Profile",
+
+    "nfhs5": {
+      "stunting_pct": 46.0,
+      "wasting_pct": 16.0,
+      "underweight_pct": 28.0,
+      "anemia_children_pct": 68.0,
+      "anemia_women_pct": 70.0,
+      "low_birth_weight_pct": 14.0,
+      "child_mortality_per_1000": 58.0,
+      "institutional_delivery_pct": 78.0,
+      "pds_coverage_pct": 72.0,
+      "open_defecation_pct": 28.0,
+      "diet_diversity_score": 2.7,
+      "vegetarian_pct": 42.0,
+      "poverty_pct": 63.0,
+      "female_literacy_pct": 41.0
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 68.0,
+        "primary_causes": [
+          "Sahariya tribe — India's most food insecure PVTGs (Particularly Vulnerable Tribal Group)",
+          "Extreme seasonal hunger from April-June (lean period)",
+          "Women's anemia 70% — one of worst in central India",
+          "Low dal consumption due to affordability"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "stable",
+        "trend_delta": "+3% vs NFHS-4"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 52.0,
+        "primary_causes": [
+          "Sparse Chambal riverine vegetation — limited green leafy vegetable access in summer",
+          "PVTGs often missed by PDS distribution"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "stable",
+        "trend_delta": "+2% vs NFHS-4"
+      },
+      "zinc": {
+        "deficiency_pct": 42.0,
+        "primary_causes": [
+          "Rotational hunger during lean season creates acute zinc depletion",
+          "High infection load from Chambal river flooding"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "b12": {
+        "deficiency_pct": 55.0,
+        "primary_causes": [
+          "Sahariya are partial vegetarians with very limited meat access",
+          "Extreme poverty prevents regular egg/dairy purchase"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "rising",
+        "trend_delta": "+9% vs NFHS-4"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 26.0,
+        "primary_causes": [
+          "Long rainy season in Chambal valley",
+          "Limited fortified food access"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "stable"
+      }
+    },
+
+    "context": {
+      "brief": "Home to the Sahariya tribe — India's only PVTG (Particularly Vulnerable Tribal Group) classified in MP. They faced literal starvation in 2002 despite Sheopur being near Kuno national park. Remains one of the most food-insecure districts in India.",
+      "key_interventions": ["PVTG Special Package MP", "Antyodaya Anna Yojana", "ICDS expanded coverage"],
+      "indigenous_foods": ["Wild berries", "Mahua", "Forest tubers", "Barbatti (wild beans)"],
+      "pds_items_available": ["Rice", "Wheat", "Fortified Dal (partial)"],
+      "hospitals_per_lakh": 0.9,
+      "anganwadis_per_1000_children": 3.0
+    }
+  },
+  {
+    "id": "barmer",
+    "name": "Barmer",
+    "state": "Rajasthan",
+    "lat": 25.74,
+    "lng": 71.39,
+    "population": 2604453,
+    "tribal": false,
+    "dominant_tribe": null,
+    "aspirational_district": true,
+    "rank": 7,
+    "source": "NFHS-5 (2019-21), NITI Aayog District Nutrition Profile",
+
+    "nfhs5": {
+      "stunting_pct": 46.0,
+      "wasting_pct": 15.0,
+      "underweight_pct": 31.0,
+      "anemia_children_pct": 75.0,
+      "anemia_women_pct": 66.0,
+      "low_birth_weight_pct": 12.0,
+      "child_mortality_per_1000": 52.0,
+      "institutional_delivery_pct": 76.0,
+      "pds_coverage_pct": 82.0,
+      "open_defecation_pct": 18.0,
+      "diet_diversity_score": 2.5,
+      "vegetarian_pct": 85.0,
+      "poverty_pct": 44.0,
+      "female_literacy_pct": 33.0
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 76.0,
+        "primary_causes": [
+          "Child anemia 75% — among the highest in any non-tribal district in India",
+          "Extremely vegetarian (85%) with no egg/meat tradition",
+          "Desert water has high fluoride interfering with iron absorption",
+          "Chaas (buttermilk) consumed at all meals — calcium blocks iron",
+          "Guar, bajra dominant crops — phytate-rich diet"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "stable",
+        "trend_delta": "-2% vs NFHS-4"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 60.0,
+        "primary_causes": [
+          "Desert environment — very limited green vegetable diversity throughout the year",
+          "PDS oil does reach but fortification level often substandard",
+          "Rajasthani dal-baati-churma diet is nutritious but vitamin A poor"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "rising",
+        "trend_delta": "+8% vs NFHS-4"
+      },
+      "zinc": {
+        "deficiency_pct": 46.0,
+        "primary_causes": [
+          "High phytate bajra-dal diet; chaas inhibits zinc absorption",
+          "High infection load from unclean water"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "stable",
+        "trend_delta": "+2% vs NFHS-4"
+      },
+      "b12": {
+        "deficiency_pct": 72.0,
+        "primary_causes": [
+          "85% vegetarian; strict Jain/Rajput communities avoid even eggs",
+          "No state B12 supplementation; no fortified foods reach this area",
+          "Among the most severe B12 deficiency districts in India"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "rising",
+        "trend_delta": "+14% vs NFHS-4"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 22.0,
+        "primary_causes": [
+          "Ironically — despite a desert, women are fully covered (purdah)",
+          "Limited sun exposure due to cultural norms"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "stable",
+        "trend_delta": "+3% vs NFHS-4"
+      }
+    },
+
+    "context": {
+      "brief": "A rich paradox — oil wells (Cairn India) nearby yet 75% child anemia. The Thar desert belt has India's most extreme B12 deficiency in vegetarian populations. Female literacy (33%) is among the lowest in Rajasthan, perpetuating intergenerational malnutrition.",
+      "key_interventions": ["Rajasthan POSHAN Aahar Yojana", "Indira Rasoi", "Fortified Bajra promotion"],
+      "indigenous_foods": ["Bajra (pearl millet)", "Ker-sangri (desert beans)", "Moth beans", "Guar phalli"],
+      "pds_items_available": ["Wheat", "Rice", "Dal", "Iodised Salt", "Fortified Oil"],
+      "hospitals_per_lakh": 1.4,
+      "anganwadis_per_1000_children": 4.0
+    }
+  },
+  {
+    "id": "nabarangpur",
+    "name": "Nabarangpur",
+    "state": "Odisha",
+    "lat": 19.24,
+    "lng": 82.55,
+    "population": 1218714,
+    "tribal": true,
+    "dominant_tribe": "Kondh, Binjhal, Koya",
+    "aspirational_district": true,
+    "rank": 8,
+    "source": "NFHS-5 (2019-21), NITI Aayog for States Dashboard, Odisha Child Nutrition Reports",
+
+    "nfhs5": {
+      "stunting_pct": 44.0,
+      "wasting_pct": 25.0,
+      "underweight_pct": 47.0,
+      "anemia_children_pct": 71.0,
+      "anemia_women_pct": 64.0,
+      "low_birth_weight_pct": 20.2,
+      "child_mortality_per_1000": 54.0,
+      "institutional_delivery_pct": 72.0,
+      "pds_coverage_pct": 71.0,
+      "open_defecation_pct": 30.0,
+      "diet_diversity_score": 2.6,
+      "vegetarian_pct": 15.0,
+      "poverty_pct": 69.0,
+      "female_literacy_pct": 42.0
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 71.0,
+        "primary_causes": [
+          "Underweight 47% — among worst in all districts — indicates severe food insecurity",
+          "Dependence on low-diversity rice diet depleted of micronutrients",
+          "High open defecation → gut infections → iron malabsorption",
+          "Food taboos for women restrict iron-rich foods during pregnancy",
+          "Kondh community has protein taboos restricting egg consumption for women"
+        ],
+        "seasonal_peak": "pre_harvest",
+        "trend": "stable",
+        "trend_delta": "-1% vs NFHS-4"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 58.0,
+        "primary_causes": [
+          "Pre-harvest lean season severely limits green vegetable access (Aug-Oct)",
+          "PDS oil reaches but Vitamin A fortification compliance is poor in Odisha's tribal blocks"
+        ],
+        "seasonal_peak": "pre_harvest",
+        "trend": "rising",
+        "trend_delta": "+9% vs NFHS-4"
+      },
+      "zinc": {
+        "deficiency_pct": 45.0,
+        "primary_causes": [
+          "Rice-dominant diet with poor zinc bioavailability",
+          "High wasting (25%) is co-caused by zinc deficiency"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "b12": {
+        "deficiency_pct": 32.0,
+        "primary_causes": [
+          "Non-vegetarian tradition but poor portion sizes",
+          "Fermented foods (kanji, rice beer) provide only trace B12"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 28.0,
+        "primary_causes": [
+          "Dense forest interior; monsoon overcast",
+          "Women's limited outdoor exposure"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "rising",
+        "trend_delta": "+6% vs NFHS-4"
+      }
+    },
+
+    "context": {
+      "brief": "Nabarangpur's child underweight (47%) is among the highest in India — meaning almost half the children weigh less than normal even for their height. Over 5,000 children were reported malnourished in November 2024. The district borders the 'hunger belt' of Koraput, Malkangiri, and Rayagada.",
+      "key_interventions": ["Odisha Nutrition Mission", "POSHAN Abhiyan", "Aspirational Districts Program"],
+      "indigenous_foods": ["Mahua", "Sal seeds", "Wild mushrooms", "Forest tubers", "Minor millets"],
+      "pds_items_available": ["Rice", "Dal", "Iodised Salt"],
+      "hospitals_per_lakh": 0.9,
+      "anganwadis_per_1000_children": 3.2
+    }
+  },
+  {
+    "id": "gadchiroli",
+    "name": "Gadchiroli",
+    "state": "Maharashtra",
+    "lat": 20.17,
+    "lng": 80.00,
+    "population": 1072942,
+    "tribal": true,
+    "dominant_tribe": "Gond, Madia, Dhurwa",
+    "aspirational_district": true,
+    "rank": 9,
+    "source": "NFHS-5 (2019-21), NITI Aayog District Profile, Maharashtra Nutrition Reports",
+
+    "nfhs5": {
+      "stunting_pct": 36.0,
+      "wasting_pct": 30.0,
+      "underweight_pct": 38.0,
+      "anemia_children_pct": 77.0,
+      "anemia_women_pct": 62.0,
+      "low_birth_weight_pct": 17.5,
+      "child_mortality_per_1000": 38.0,
+      "institutional_delivery_pct": 80.0,
+      "pds_coverage_pct": 66.0,
+      "open_defecation_pct": 28.0,
+      "diet_diversity_score": 2.9,
+      "vegetarian_pct": 20.0,
+      "poverty_pct": 62.0,
+      "female_literacy_pct": 52.0
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 77.5,
+        "primary_causes": [
+          "Child anemia 77% — highest of all 10 districts — shockingly high even in a non-veg community",
+          "Despite improved stunting, anemia surged from 58% to 77% between NFHS-4 and NFHS-5",
+          "High wasting (30%) suggests acute severe malnutrition depressing serum iron",
+          "Malarial endemicity in Gadchiroli — malaria destroys red blood cells",
+          "Even with forest foods, absorption blocked by high infection/inflammation"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "rising",
+        "trend_delta": "+19% vs NFHS-4 — ALARMING spike"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 55.0,
+        "primary_causes": [
+          "Forest foods seasonal; Madia Gonds dependent on forest for nutrition year-round",
+          "Forested roads inaccessible for 5 months/year — PDS deliveries disrupted"
+        ],
+        "seasonal_peak": "pre_harvest",
+        "trend": "stable",
+        "trend_delta": "+3% vs NFHS-4"
+      },
+      "zinc": {
+        "deficiency_pct": 45.0,
+        "primary_causes": [
+          "Wasting at 30% creates zinc-growth failure loop",
+          "Maize and rice monotony with poor zinc content"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "b12": {
+        "deficiency_pct": 30.0,
+        "primary_causes": [
+          "Non-vegetarian but forest game access disrupted by conservation laws",
+          "Limited B12 from available food sources"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 30.0,
+        "primary_causes": [
+          "Longest monsoon among the 10 districts — 7 months of cloud cover",
+          "Dense Gondwana forest limits sunlight"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "rising",
+        "trend_delta": "+8% vs NFHS-4"
+      }
+    },
+
+    "context": {
+      "brief": "Gadchiroli's anemia spiked from 58% to 77% in children between NFHS-4 and NFHS-5 — a +19 percentage point catastrophe. Despite improving stunting, anemia worsened dramatically, likely linked to surging malaria and forest-food disruption. The Madia Gond community faces extinction-level nutrition pressure.",
+      "key_interventions": ["SEARCH NGO model (Dr Abhay Bang)", "Maharashtra POSHAN", "Forest Rights Act-linked food security"],
+      "indigenous_foods": ["Mahua flowers", "Tamarind", "Wild mushrooms", "Red ant chutney", "Bamboo rice"],
+      "pds_items_available": ["Rice", "Wheat", "Dal", "Salt"],
+      "hospitals_per_lakh": 0.6,
+      "anganwadis_per_1000_children": 2.9
+    }
+  },
+  {
+    "id": "dungarpur",
+    "name": "Dungarpur",
+    "state": "Rajasthan",
+    "lat": 23.84,
+    "lng": 73.71,
+    "population": 1388906,
+    "tribal": true,
+    "dominant_tribe": "Bhil, Garasia",
+    "aspirational_district": true,
+    "rank": 10,
+    "source": "NFHS-5 (2019-21), NITI District Nutrition Profile, Rajasthan SDG Report",
+
+    "nfhs5": {
+      "stunting_pct": 45.0,
+      "wasting_pct": 14.0,
+      "underweight_pct": 30.0,
+      "anemia_children_pct": 73.0,
+      "anemia_women_pct": 60.0,
+      "low_birth_weight_pct": 13.5,
+      "child_mortality_per_1000": 44.0,
+      "institutional_delivery_pct": 84.0,
+      "pds_coverage_pct": 80.0,
+      "open_defecation_pct": 15.0,
+      "diet_diversity_score": 2.7,
+      "vegetarian_pct": 22.0,
+      "poverty_pct": 52.0,
+      "female_literacy_pct": 43.0
+    },
+
+    "micronutrient_profile": {
+      "iron": {
+        "deficiency_pct": 73.0,
+        "primary_causes": [
+          "Child anemia 73% despite institutional delivery 84% and ODF status — diet is the bottleneck",
+          "Iron-inhibiting tannins in local chai with every meal",
+          "Intercropping zone — maize+bajra dominant, low iron bioavailability",
+          "Fluorosis from groundwater interacts with iron metabolism"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "stable",
+        "trend_delta": "+2% vs NFHS-4"
+      },
+      "vitamin_a": {
+        "deficiency_pct": 54.0,
+        "primary_causes": [
+          "Limited orange/yellow vegetable cultivation in hilly tribal terrain",
+          "PDS oil fortification is administrative rather than operational in Dungarpur"
+        ],
+        "seasonal_peak": "summer",
+        "trend": "rising",
+        "trend_delta": "+11% vs NFHS-4"
+      },
+      "zinc": {
+        "deficiency_pct": 40.0,
+        "primary_causes": [
+          "Typical Rajasthani tribal diet: phytate-rich with limited meat frequency"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "stable"
+      },
+      "b12": {
+        "deficiency_pct": 48.0,
+        "primary_causes": [
+          "Bhil tribal — non-vegetarian in tradition but limited consumption frequency",
+          "No B12 fortification or targeted supplementation reach"
+        ],
+        "seasonal_peak": "winter",
+        "trend": "rising",
+        "trend_delta": "+7% vs NFHS-4"
+      },
+      "vitamin_d": {
+        "deficiency_pct": 24.0,
+        "primary_causes": [
+          "Hilly terrain with forest cover; monsoon overcast 4 months",
+          "Cultural norms around women's sun exposure"
+        ],
+        "seasonal_peak": "monsoon",
+        "trend": "stable",
+        "trend_delta": "stable"
+      }
+    },
+
+    "context": {
+      "brief": "Dungarpur sits in the Vagad subregion between the Aravalli hills — a striking tribal-hill district where despite 84% institutional delivery and good ODF coverage, child anemia stubbornly sits at 73%. It's a classic case of 'system reach is fine, dietary quality is the killer'.",
+      "key_interventions": ["Rajasthan POSHAN", "Dungarpur Integrated Tribal Development Project", "Indira Rasoi"],
+      "indigenous_foods": ["Millet (bajra)", "Wild mushrooms", "Amla (gooseberry) - natural Vit C booster", "Forest tubers"],
+      "pds_items_available": ["Wheat", "Rice", "Dal", "Iodised Salt", "Fortified Oil"],
+      "hospitals_per_lakh": 1.6,
+      "anganwadis_per_1000_children": 4.2
+    }
+  }
 ]
