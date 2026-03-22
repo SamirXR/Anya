@@ -1,0 +1,111 @@
+{
+  "vehicles": [
+    {
+      "id": "pds_rice",
+      "name": "PDS Rice (FRK Fortification)",
+      "channel": "PDS",
+      "target_population": "All households",
+      "base_coverage_pct": 80,
+      "nutrients": [
+        {"nutrient": "iron", "standard_mg_per_kg": 28, "max_mg_per_kg": 42, "cost_per_kg": 0.73},
+        {"nutrient": "b12", "standard_mcg_per_kg": 1000, "max_mcg_per_kg": 1500, "cost_per_kg": 0.18},
+        {"nutrient": "folate", "standard_mcg_per_kg": 75000, "max_mcg_per_kg": 100000, "cost_per_kg": 0.12}
+      ],
+      "population_group": "general",
+      "bioavailability_note": "Iron bioavailability enhanced by vitamin C in meals. Phytates in rice reduce absorption.",
+      "fssai_compliant": true
+    },
+    {
+      "id": "anganwadi_thr",
+      "name": "Anganwadi Take-Home Ration (THR)",
+      "channel": "ICDS/Anganwadi",
+      "target_population": "Children 6-36 months + Pregnant/Lactating Women",
+      "base_coverage_pct": 65,
+      "nutrients": [
+        {"nutrient": "zinc", "standard_mg_per_serving": 5, "max_mg_per_serving": 8, "cost_per_packet": 1.2},
+        {"nutrient": "vitamin_a", "standard_mcg_per_serving": 200, "max_mcg_per_serving": 300, "cost_per_packet": 0.8},
+        {"nutrient": "iron", "standard_mg_per_serving": 12, "max_mg_per_serving": 18, "cost_per_packet": 0.6}
+      ],
+      "population_group": "children_plw",
+      "bioavailability_note": "Multi-micronutrient premix. Zinc + Vitamin A synergistic. Separate iron and calcium.",
+      "fssai_compliant": true
+    },
+    {
+      "id": "double_fortified_salt",
+      "name": "Double Fortified Salt (DFS - Iron + Iodine)",
+      "channel": "PDS",
+      "target_population": "All households",
+      "base_coverage_pct": 55,
+      "nutrients": [
+        {"nutrient": "iron", "standard_mg_per_kg": 1000, "max_mg_per_kg": 1500, "cost_per_kg": 2.0},
+        {"nutrient": "iodine", "standard_mcg_per_kg": 30000, "max_mcg_per_kg": 40000, "cost_per_kg": 0.5}
+      ],
+      "population_group": "general",
+      "bioavailability_note": "Encapsulated iron in DFS has ~10% absorption rate. Contributes ~1-1.5mg iron/day at standard salt intake.",
+      "fssai_compliant": true
+    },
+    {
+      "id": "pds_oil",
+      "name": "Fortified Edible Oil (PDS)",
+      "channel": "PDS",
+      "target_population": "All households",
+      "base_coverage_pct": 70,
+      "nutrients": [
+        {"nutrient": "vitamin_a", "standard_mcg_per_liter": 6000, "max_mcg_per_liter": 7500, "cost_per_liter": 0.5},
+        {"nutrient": "vitamin_d", "standard_mcg_per_liter": 50, "max_mcg_per_liter": 75, "cost_per_liter": 0.3}
+      ],
+      "population_group": "general",
+      "bioavailability_note": "Fat-soluble vitamins have high bioavailability when delivered in oil. Vitamin D and A synergistic.",
+      "fssai_compliant": true
+    },
+    {
+      "id": "mdm_flour",
+      "name": "Mid-Day Meal Flour (Schools)",
+      "channel": "MDM/School",
+      "target_population": "School children 6-14 years",
+      "base_coverage_pct": 85,
+      "nutrients": [
+        {"nutrient": "iron", "standard_mg_per_kg": 40, "max_mg_per_kg": 60, "cost_per_kg": 0.9},
+        {"nutrient": "zinc", "standard_mg_per_kg": 30, "max_mg_per_kg": 42, "cost_per_kg": 0.7},
+        {"nutrient": "b_complex", "standard_mg_per_kg": 10, "max_mg_per_kg": 15, "cost_per_kg": 1.1}
+      ],
+      "population_group": "school_children",
+      "bioavailability_note": "Wheat flour binds iron but vitamin C in curry/lemon enhances absorption. Ensure iron+zinc balanced.",
+      "fssai_compliant": true
+    }
+  ],
+  "micronutrients": {
+    "iron": {"name": "Iron", "unit": "mg", "rda_child_6_23m": 11, "rda_child_1_3y": 9, "rda_woman": 21, "rda_pregnant": 35, "rda_adolescent": 32, "ul_child": 40, "ul_adult": 45, "deficiency_threshold_oc": 72},
+    "vitamin_a": {"name": "Vitamin A", "unit": "mcg RAE", "rda_child_6_23m": 400, "rda_child_1_3y": 400, "rda_woman": 700, "rda_pregnant": 800, "rda_adolescent": 600, "ul_child": 600, "ul_adult": 3000, "deficiency_threshold_oc": 30},
+    "zinc": {"name": "Zinc", "unit": "mg", "rda_child_6_23m": 8.4, "rda_child_1_3y": 8.3, "rda_woman": 12, "rda_pregnant": 14, "rda_adolescent": 13, "ul_child": 7, "ul_adult": 40, "deficiency_threshold_oc": 38},
+    "b12": {"name": "Vitamin B12", "unit": "mcg", "rda_child_6_23m": 1.2, "rda_child_1_3y": 1.5, "rda_woman": 2.2, "rda_pregnant": 2.5, "rda_adolescent": 2.2, "ul_child": null, "ul_adult": null, "deficiency_threshold_oc": 50},
+    "vitamin_d": {"name": "Vitamin D", "unit": "mcg", "rda_child_6_23m": 10, "rda_child_1_3y": 10, "rda_woman": 10, "rda_pregnant": 10, "rda_adolescent": 10, "ul_child": 50, "ul_adult": 100, "deficiency_threshold_oc": 35},
+    "folate": {"name": "Folate", "unit": "mcg", "rda_child_6_23m": 150, "rda_child_1_3y": 200, "rda_woman": 220, "rda_pregnant": 600, "rda_adolescent": 300, "ul_child": 300, "ul_adult": 1000, "deficiency_threshold_oc": 25}
+  },
+  "bioavailability_interactions": {
+    "iron": {
+      "enhancers": ["vitamin_c", "vitamin_a", "meat_factor"],
+      "inhibitors": ["calcium", "phytates", "polyphenols", "zinc_high_dose"],
+      "enhancement_factor": 2.5,
+      "inhibition_factor": 0.5
+    },
+    "zinc": {
+      "enhancers": ["animal_protein"],
+      "inhibitors": ["iron_high_dose", "phytates", "calcium"],
+      "enhancement_factor": 1.5,
+      "inhibition_factor": 0.6
+    },
+    "vitamin_a": {
+      "enhancers": ["fat", "zinc", "vitamin_d"],
+      "inhibitors": [],
+      "enhancement_factor": 2.0,
+      "inhibition_factor": 1.0
+    },
+    "vitamin_d": {
+      "enhancers": ["vitamin_a", "calcium", "fat"],
+      "inhibitors": [],
+      "enhancement_factor": 1.5,
+      "inhibition_factor": 1.0
+    }
+  }
+}

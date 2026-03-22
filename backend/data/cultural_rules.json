@@ -1,0 +1,96 @@
+{
+  "hindu_vegetarian": {
+    "label": "Hindu (Vegetarian)",
+    "excluded_foods": ["meat", "chicken", "fish", "eggs", "pork", "beef"],
+    "preferred_staples": ["rice", "wheat_roti", "dal", "curd", "paneer", "milk"],
+    "iron_sources": ["ragi", "drumstick_leaves", "spinach", "jaggery", "horsegram", "rajma", "double_fortified_salt"],
+    "b12_strategy": "supplement_required",
+    "fasting_periods": ["navratri", "ekadashi", "shravan"],
+    "pregnancy_taboos": ["papaya_fear", "eating_less", "hot_foods"],
+    "notes": "Focus on iron from plant sources. Pair with vitamin C to enhance absorption. B12 supplement essential."
+  },
+  "hindu_brahmin": {
+    "label": "Hindu Brahmin (Strict Veg)",
+    "excluded_foods": ["meat", "chicken", "fish", "eggs", "pork", "beef", "onion", "garlic"],
+    "preferred_staples": ["rice", "wheat_roti", "dal", "curd", "paneer", "milk", "ghee"],
+    "iron_sources": ["ragi", "drumstick_leaves", "spinach", "jaggery", "rajma", "double_fortified_salt", "sesame_seeds"],
+    "b12_strategy": "supplement_required",
+    "fasting_periods": ["navratri", "ekadashi", "pradosham", "monthly_fasts"],
+    "pregnancy_taboos": ["papaya_fear", "eating_less"],
+    "notes": "No onion/garlic. Must substitute many common recipes. Dairy key for protein but not B12."
+  },
+  "hindu_nonveg": {
+    "label": "Hindu (Non-Vegetarian)",
+    "excluded_foods": ["beef", "pork"],
+    "preferred_staples": ["rice", "wheat_roti", "dal", "chicken", "eggs", "fish"],
+    "iron_sources": ["chicken_liver", "eggs", "ragi", "spinach", "jaggery", "fortified_rice"],
+    "b12_strategy": "adequate_from_diet",
+    "fasting_periods": ["navratri", "shravan", "ekadashi"],
+    "pregnancy_taboos": ["papaya_fear", "fish_during_monsoon"],
+    "notes": "Best nutritional profile of Hindu subgroups. Eggs and chicken liver excellent iron/B12 sources."
+  },
+  "tribal_hindu": {
+    "label": "Tribal Hindu",
+    "excluded_foods": ["beef"],
+    "preferred_staples": ["rice", "mahua", "sal_seeds", "local_fish", "eggs", "wild_greens"],
+    "iron_sources": ["red_ant_chutney", "local_fish", "eggs", "wild_amaranth", "drumstick_leaves", "fortified_rice"],
+    "b12_strategy": "adequate_from_diet",
+    "indigenous_superfoods": ["red_ant_chutney", "wild_mushrooms", "bamboo_shoots", "mahua_flowers", "sal_seeds", "roasted_insects"],
+    "fasting_periods": ["harvest_festivals"],
+    "pregnancy_taboos": ["eating_less"],
+    "notes": "Indigenous diet often nutritionally rich. Red ant chutney has ~48mg iron per 100g! Preserve traditional foods."
+  },
+  "muslim": {
+    "label": "Muslim",
+    "excluded_foods": ["pork", "non_halal_meat", "alcohol"],
+    "preferred_staples": ["rice", "wheat_roti", "mutton", "chicken", "biryani", "dal"],
+    "iron_sources": ["mutton", "chicken_liver", "eggs", "rajma", "spinach", "fortified_rice"],
+    "b12_strategy": "adequate_from_diet",
+    "fasting_periods": ["ramadan"],
+    "ramadan_suhoor_foods": ["oats", "eggs", "dates", "milk", "whole_wheat_roti"],
+    "ramadan_iftar_foods": ["dates", "shorba", "rice", "meat_curry"],
+    "pregnancy_taboos": ["eating_less"],
+    "notes": "Ramadan: Pregnant women medically exempt from fasting. Suhoor must be nutrient-dense for those who fast."
+  },
+  "sikh": {
+    "label": "Sikh",
+    "excluded_foods": ["beef", "halal_meat"],
+    "preferred_staples": ["wheat_roti", "dal", "sarson_saag", "makki_roti", "lassi", "chicken"],
+    "iron_sources": ["chicken", "sarson_saag", "rajma", "iron_fortified_flour", "jaggery"],
+    "b12_strategy": "adequate_from_diet",
+    "fasting_periods": [],
+    "pregnancy_taboos": [],
+    "notes": "Punjab-origin diet, heavily wheat and dairy based. Generally good nutrition. Anemia risk mainly in women."
+  },
+  "jain": {
+    "label": "Jain",
+    "excluded_foods": ["meat", "fish", "eggs", "root_vegetables", "potatoes", "onion", "garlic", "carrots", "beets", "honey"],
+    "preferred_staples": ["rice", "wheat_roti", "dal", "curd", "milk", "ghee"],
+    "iron_sources": ["fortified_cereals", "spinach", "drum_stick_leaves", "sesame_seeds", "double_fortified_salt", "rajma"],
+    "b12_strategy": "supplement_essential",
+    "zinc_strategy": "pumpkin_seeds, cashews, fortified_foods",
+    "fasting_periods": ["paryushana", "ekadashi", "no_food_after_sunset"],
+    "pregnancy_taboos": ["papaya_fear"],
+    "notes": "Most nutritionally challenging diet. B12 supplement and iron-rich fortified foods are non-negotiable. No root veg severely limits options."
+  },
+  "christian": {
+    "label": "Christian",
+    "excluded_foods": [],
+    "preferred_staples": ["rice", "wheat_roti", "eggs", "fish", "chicken", "beef"],
+    "iron_sources": ["beef", "chicken_liver", "eggs", "spinach", "fortified_rice"],
+    "b12_strategy": "adequate_from_diet",
+    "fasting_periods": ["lent_fridays", "good_friday"],
+    "pregnancy_taboos": [],
+    "notes": "Few restrictions. Northeast Christian communities have excellent protein access (beef, pork, fish)."
+  },
+  "buddhist": {
+    "label": "Buddhist",
+    "excluded_foods": ["meat", "fish", "eggs"],
+    "preferred_staples": ["rice", "dal", "vegetables", "tofu", "fermented_foods"],
+    "iron_sources": ["fortified_rice", "spinach", "jaggery", "sesame_seeds", "double_fortified_salt"],
+    "b12_strategy": "supplement_required",
+    "fasting_periods": ["buddhist_fasting_days"],
+    "pregnancy_taboos": [],
+    "notes": "Similar to strict vegetarian. B12 supplement essential. Fermented foods (like fermented soya) can provide some B12."
+  }
+}
