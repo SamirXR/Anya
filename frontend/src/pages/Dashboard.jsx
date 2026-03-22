@@ -4,7 +4,7 @@ import RiskPanel from '../components/RiskPanel'
 import FortificationPanel from '../components/FortificationPanel'
 import { API } from '../utils'
 
-export default function Dashboard({ onNavigate }) {
+export default function Dashboard({ onNavigate, activeTab, setActiveTab }) {
   const [districts, setDistricts] = useState([])
   const [selectedDistrict, setSelectedDistrict] = useState(null)
   const [prediction, setPrediction] = useState(null)
@@ -12,7 +12,6 @@ export default function Dashboard({ onNavigate }) {
   const [loadingDistricts, setLoadingDistricts] = useState(true)
   const [loadingPrediction, setLoadingPrediction] = useState(false)
   const [loadingFort, setLoadingFort] = useState(false)
-  const [activeTab, setActiveTab] = useState('predict')
 
   // Load all districts on mount
   useEffect(() => {

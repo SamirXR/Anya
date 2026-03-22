@@ -10,6 +10,12 @@ const PAGES = [
 
 export default function App() {
   const [activePage, setActivePage] = useState('dashboard')
+  const [activeTab, setActiveTab] = useState('predict')
+
+  const navigateTo = (page, tab) => {
+    setActivePage(page)
+    if (tab) setActiveTab(tab)
+  }
 
   return (
     <div className="app-shell">
@@ -34,13 +40,22 @@ export default function App() {
           ))}
 
           <div className="nav-group-label" style={{ marginTop: 16 }}>Pipeline</div>
-          <div className="nav-item" style={{ cursor: 'default', opacity: 0.7 }}>
+          <div
+            className={`nav-item ${activePage === 'dashboard' && activeTab === 'predict' ? 'active' : ''}`}
+            onClick={() => navigateTo('dashboard', 'predict')}
+          >
             <span style={{ fontSize: 11, color: 'var(--sky)', fontWeight: 600 }}>① PREDICT</span>
           </div>
-          <div className="nav-item" style={{ cursor: 'default', opacity: 0.7 }}>
+          <div
+            className={`nav-item ${activePage === 'dashboard' && activeTab === 'fortify' ? 'active' : ''}`}
+            onClick={() => navigateTo('dashboard', 'fortify')}
+          >
             <span style={{ fontSize: 11, color: 'var(--saffron)', fontWeight: 600 }}>② FORTIFY</span>
           </div>
-          <div className="nav-item" style={{ cursor: 'default', opacity: 0.7 }}>
+          <div
+            className={`nav-item ${activePage === 'meals' ? 'active' : ''}`}
+            onClick={() => navigateTo('meals')}
+          >
             <span style={{ fontSize: 11, color: 'var(--emerald)', fontWeight: 600 }}>③ NOURISH</span>
           </div>
 
@@ -65,7 +80,7 @@ export default function App() {
 
       {/* Main */}
       <div className="main-content">
-        {activePage === 'dashboard' && <Dashboard onNavigate={setActivePage} />}
+        {activePage === 'dashboard' && <Dashboard onNavigate={setActivePage} activeTab={activeTab} setActiveTab={setActiveTab} />}
         {activePage === 'meals' && <MealPlanner />}
       </div>
     </div>
