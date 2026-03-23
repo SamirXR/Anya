@@ -58,54 +58,56 @@ def predict_district(district_id: str):
     d = next((x for x in districts if x["id"] == district_id), None)
     if not d:
         return None
+    return format_prediction_response(d)
 
-    nfhs = d["nfhs5"]
-    mn = d["micronutrient_profile"]
-    overall = _overall_risk(d)
+def format_prediction_response(d: dict):
+    nfhs = d.get("nfhs5", {})
+    mn = d.get("micronutrient_profile", {})
+    overall = _overall_risk(d) if "overall_risk" not in d else d["overall_risk"]
 
     return {
-        "district_id": d["id"],
-        "district_name": d["name"],
-        "state": d["state"],
-        "population": d["population"],
-        "tribal": d["tribal"],
+        "district_id": d.get("id"),
+        "district_name": d.get("name"),
+        "state": d.get("state"),
+        "population": d.get("population", 0),
+        "tribal": d.get("tribal", False),
         "dominant_tribe": d.get("dominant_tribe"),
-        "aspirational_district": d["aspirational_district"],
-        "rank": d["rank"],
-        "data_source": d["source"],
+        "aspirational_district": d.get("aspirational_district", False),
+        "rank": d.get("rank", 999),
+        "data_source": d.get("source", "Unknown"),
         "prediction_horizon": "Based on NFHS-5 (2019-21) — current status",
         "overall_risk": overall,
-        "overall_level": _level(overall),
+        "overall_level": _level(overall) if "overall_level" not in d else d["overall_level"],
 
         "micronutrients": {
             nutrient: {
-                "risk_pct": info["deficiency_pct"],
-                "level": _level(info["deficiency_pct"]),
-                "trend": info["trend"],
-                "trend_delta": info["trend_delta"],
-                "causes": info["primary_causes"],
-                "seasonal_peak": info["seasonal_peak"],
-                "confidence": 0.92,  # Source: NFHS-5 official district factsheet
+                "risk_pct": info.get("deficiency_pct", 0),
+                "level": _level(info.get("deficiency_pct", 0)),
+                "trend": info.get("trend", "stable"),
+                "trend_delta": info.get("trend_delta", "0%"),
+                "causes": info.get("primary_causes", []),
+                "seasonal_peak": info.get("seasonal_peak", ""),
+                "confidence": 0.92,
             }
             for nutrient, info in mn.items()
         },
 
         "district_context": {
-            "stunting_pct": nfhs["stunting_pct"],
-            "wasting_pct": nfhs["wasting_pct"],
-            "underweight_pct": nfhs["underweight_pct"],
-            "anemia_children_pct": nfhs["anemia_children_pct"],
-            "anemia_women_pct": nfhs["anemia_women_pct"],
-            "low_birth_weight_pct": nfhs["low_birth_weight_pct"],
-            "child_mortality_per_1000": nfhs["child_mortality_per_1000"],
-            "institutional_delivery_pct": nfhs["institutional_delivery_pct"],
-            "pds_coverage": nfhs["pds_coverage_pct"],
-            "open_defecation_pct": nfhs["open_defecation_pct"],
-            "diet_diversity_score": nfhs["diet_diversity_score"],
-            "vegetarian_pct": nfhs["vegetarian_pct"],
-            "poverty_pct": nfhs["poverty_pct"],
-            "female_literacy_pct": nfhs["female_literacy_pct"],
+            "stunting_pct": nfhs.get("stunting_pct", 0),
+            "wasting_pct": nfhs.get("wasting_pct", 0),
+            "underweight_pct": nfhs.get("underweight_pct", 0),
+            "anemia_children_pct": nfhs.get("anemia_children_pct", 0),
+            "anemia_women_pct": nfhs.get("anemia_women_pct", 0),
+            "low_birth_weight_pct": nfhs.get("low_birth_weight_pct", 0),
+            "child_mortality_per_1000": nfhs.get("child_mortality_per_1000", 0),
+            "institutional_delivery_pct": nfhs.get("institutional_delivery_pct", 0),
+            "pds_coverage": nfhs.get("pds_coverage_pct", 0),
+            "open_defecation_pct": nfhs.get("open_defecation_pct", 0),
+            "diet_diversity_score": nfhs.get("diet_diversity_score", 0),
+            "vegetarian_pct": nfhs.get("vegetarian_pct", 0),
+            "poverty_pct": nfhs.get("poverty_pct", 0),
+            "female_literacy_pct": nfhs.get("female_literacy_pct", 0),
         },
 
-        "context": d["context"],
+        "context": d.get("context", {}),
     }

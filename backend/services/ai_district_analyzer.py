@@ -11,12 +11,15 @@ from dotenv import load_dotenv
 env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
 load_dotenv(env_path)
 
-ENDPOINT = os.getenv(
-    "AZURE_OPENAI_ENDPOINT",
-    "https://ai-samirawm76076ai528478683931.services.ai.azure.com/openai/v1/"
-)
-API_KEY = os.getenv("AZURE_OPENAI_API_KEY", "")
-MODEL = os.getenv("AZURE_OPENAI_DEPLOYMENT", "grok-4-fast-reasoning")
+endpoint = "https://ai-samirawm76076ai528478683931.services.ai.azure.com/openai/v1/"
+model_name = "grok-4-fast-reasoning"
+deployment_name = "grok-4-fast-reasoning"
+
+api_key = os.getenv("AZURE_OPENAI_API_KEY", "<your-api-key>")
+
+ENDPOINT = endpoint
+API_KEY = api_key
+MODEL = deployment_name
 
 SYSTEM_PROMPT = """You are Anya, India's Nutrition Copilot AI. Generate a detailed nutrition risk profile for any Indian district.
 
@@ -86,7 +89,7 @@ Be precise. Interpolate from state data and comparable districts when exact dist
 async def analyze_district_with_ai(district_name: str, state_name: str = "") -> dict:
     """Call Grok-4-fast-reasoning to generate a nutrition profile for a custom district."""
 
-    if not API_KEY:
+    if not API_KEY or API_KEY == "<your-api-key>":
         raise ValueError(
             "Azure API key not set. Add AZURE_OPENAI_API_KEY to backend/.env"
         )

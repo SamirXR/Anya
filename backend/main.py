@@ -100,7 +100,17 @@ def predict(district_id: str):
     Get full micronutrient deficiency risk prediction for a district.
     Returns per-nutrient risk scores, trends, causes, and confidence intervals.
     """
-    result = predict_district(district_id.lower().replace(" ", "_").replace("-", "_"))
+    clean_id = district_id.lower().replace(" ", "_").replace("-", "_")
+    
+    # Check if this district was AI-generated during this session
+    if clean_id in ai_districts:
+        # We need to format the raw AI generated dict similar to how `predict_district` formats it.
+        # However, the AI district analyzer output schema might already match the frontend expected format or the raw district.json format.
+        # Let's import the formatter from risk_predictor
+        from services.risk_predictor import format_prediction_response
+        return format_prediction_response(ai_districts[clean_id])
+
+    result = predict_district(clean_id)
     if not result:
         raise HTTPException(status_code=404, detail=f"District '{district_id}' not found")
     return result
@@ -112,21 +122,28 @@ def fortify(district_id: str):
     Get optimized fortification strategy for a district.
     Returns food vehicle selection, micronutrient levels, costs, and projected impact.
     """
+    clean_id = district_id.lower().replace(" ", "_").replace("-", "_")
     # First get risk profile
-    risk_data = predict_district(district_id.lower().replace(" ", "_").replace("-", "_"))
+    
+    if clean_id in ai_districts:
+        from services.risk_predictor import format_prediction_response
+        risk_data = format_prediction_response(ai_districts[clean_id])
+    else:
+        risk_data = predict_district(clean_id)
+        
     if not risk_data:
         raise HTTPException(status_code=404, detail=f"District '{district_id}' not found")
-    
+
     # Extract just risk percentages for optimizer
     risk_profile = {
         k: v["risk_pct"]
         for k, v in risk_data["micronutrients"].items()
     }
-    
-    result = optimize_fortification(district_id.lower().replace(" ", "_").replace("-", "_"), risk_profile)
+
+    result = optimize_fortification(clean_id, risk_profile)
     if not result:
         raise HTTPException(status_code=404, detail=f"District '{district_id}' not found")
-    
+
     # Attach risk context
     result["risk_context"] = {
         k: {"risk_pct": v["risk_pct"], "level": v["level"]}
@@ -182,7 +199,7 @@ def health():
 @app.post("/api/analyze-district")
 async def analyze_district(request: AnalyzeDistrictRequest):
     """
-    Use Azure OpenAI GPT-4o to analyze a custom district not in our database.
+    Use Azure OpenAI grok-4-fast-reasoning to analyze a custom district not in our database.
     Returns a full nutrition profile matching the same schema as built-in districts.
     """
     key = request.district_name.lower().replace(" ", "_")
